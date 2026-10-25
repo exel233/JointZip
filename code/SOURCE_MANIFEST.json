@@ -1,0 +1,226 @@
+{
+  "schema": "jointzip.public-source-snapshot.v1",
+  "original_files_byte_exact": true,
+  "files": [
+    {
+      "path": "code/experiments/vldb/framework_ablation_20261017/codec.py",
+      "sha256": "05be1d30c5d035187e792c328caea1f70edc81722b773def6e098f72719186a2",
+      "bytes": 39827
+    },
+    {
+      "path": "code/experiments/vldb/framework_ablation_20261017/container.py",
+      "sha256": "7bd0639918486a37013524af62bebf2b919c8339c6eb975584784c5e5429dcc6",
+      "bytes": 1205
+    },
+    {
+      "path": "code/experiments/vldb/framework_ablation_20261017/native_cache.py",
+      "sha256": "a391d3153c66f856b07605df3ac425aef0633e6dfb50c1ca06b07b6ceecbafc0",
+      "bytes": 8246
+    },
+    {
+      "path": "code/experiments/vldb/framework_ablation_20261017/test_codec_isolation.py",
+      "sha256": "25b6f6f968f677b6d6ca331662c953cc5a553155f74be5cb3636a8c56d56ef2f",
+      "bytes": 6946
+    },
+    {
+      "path": "code/experiments/vldb/framework_full_20261015/codec.py",
+      "sha256": "34d6675e4fa97ed621f322c71a0f0a729ec17358b1f992b049d85bebbc0978b6",
+      "bytes": 35154
+    },
+    {
+      "path": "code/experiments/vldb/framework_full_20261015/container.py",
+      "sha256": "7bd0639918486a37013524af62bebf2b919c8339c6eb975584784c5e5429dcc6",
+      "bytes": 1205
+    },
+    {
+      "path": "code/experiments/vldb/framework_full_20261015/native/build.sh",
+      "sha256": "5a20e89cd3636fd82f5df13937976b04df9ab388ef7d8ebf409abe37ef73b1df",
+      "bytes": 503
+    },
+    {
+      "path": "code/experiments/vldb/framework_full_20261015/native/fixed_backend.cpp",
+      "sha256": "e16943342d3cadd6642d2d80630d0ab62a0d1c66094547ae1fc9cd160bef5199",
+      "bytes": 5640
+    },
+    {
+      "path": "code/experiments/vldb/framework_full_20261015/native/write_manifest.py",
+      "sha256": "543a8f15cb38796eabce8dac0804475b0b15649b19c041d3f9a95b2e6e85abb1",
+      "bytes": 947
+    },
+    {
+      "path": "code/experiments/vldb/framework_pilot_20261014/native/anchors.cpp",
+      "sha256": "3feecba91b4861afb1898217827f4b86f06d88aa4ecedc1c881c415db73ada25",
+      "bytes": 1871
+    },
+    {
+      "path": "code/experiments/vldb/framework_sz2016_20261016/codec.py",
+      "sha256": "1443a9e237ad787611f98653c3a26372401114129b1f54e0ed13aef52e684b3f",
+      "bytes": 37832
+    },
+    {
+      "path": "code/experiments/vldb/framework_sz2016_20261016/container.py",
+      "sha256": "7bd0639918486a37013524af62bebf2b919c8339c6eb975584784c5e5429dcc6",
+      "bytes": 1205
+    },
+    {
+      "path": "code/experiments/vldb/main_benchmark/build_modern_codecs.sh",
+      "sha256": "30c85cf94fe91373e7c435c00c77f6f5057cb6279d099928b37c7ba1cddcdf95",
+      "bytes": 4658
+    },
+    {
+      "path": "code/experiments/vldb/main_benchmark/modern_codecs.py",
+      "sha256": "323ed55e64df06392222ca050402f1fb629a4eaf1a3ec10d1e2e241ff6409178",
+      "bytes": 11769
+    },
+    {
+      "path": "code/experiments/vldb/main_benchmark/sz3_api_cli.cpp",
+      "sha256": "c29472204d60186e4514393c2194011c013da6bd2865797b7da0163cf424739b",
+      "bytes": 2534
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/build_isolated_wsl.sh",
+      "sha256": "631098ea5645e371e748e9b10508d0a399f014c65a1fc1f6cb440c0a459c23e6",
+      "bytes": 1744
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/build_wsl.sh",
+      "sha256": "4dfca001dcc501d6c3cb42ce13ed410a9bc72be51f0559ff764dd34eb791fd2f",
+      "bytes": 6909
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/CMakeLists.txt",
+      "sha256": "02e4bf825d3c1b5a74410d0bf2f742bc118e45d78613e8fa1965dbdd41c95ba9",
+      "bytes": 8300
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/CorrelationQoI.hpp",
+      "sha256": "724991c7e6e8410c9c4e30661cf25dd5c21e7e606c2f34b4757658d532bca009",
+      "bytes": 30646
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/FeasibleValueTargets.hpp",
+      "sha256": "dbe20e5e87a331294defc58b4d4e2d78b7f97f993dd4a135f7d777fc7f9ca287",
+      "bytes": 16000
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/GuidedExperiment.inc",
+      "sha256": "c2cde79a64382b4fc696dc906fb4d54f9d2d6be507e66b923de799ea8cd28966",
+      "bytes": 18118
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/PaperBudgetCandidates.inc",
+      "sha256": "dff7a5f8ade75dc6604042c579a8fc4577b3fced1d476804d43d94c1c3b1ae0c",
+      "bytes": 3336
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/patches/0001-fix-tuning-huffman-buffer.patch",
+      "sha256": "43b7a6ddafbfb16f03f918cce23f094a41b479652fe7aad829b3aa880058e5f2",
+      "bytes": 3242
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/patches/0002-eliminate-sanitizer-undefined-behavior.patch",
+      "sha256": "324300e1c52d501c246f67da7b891c70503b847081ebbd52b4718c85dc228f56",
+      "bytes": 16094
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/patches/0003-fail-closed-huffman-and-symbol-count.patch",
+      "sha256": "5745f4856b6c693e66f19fc86b6fab24ba63d158744a5626e7136e0147b81ed4",
+      "bytes": 15040
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/qpet_correlation_batch.cpp",
+      "sha256": "9a4e542b8050e4dcc42450cec666420d8a06d9ab0547378bcb2e128670c0aa7e",
+      "bytes": 757971
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/RefinedBudgetExperiment.inc",
+      "sha256": "3c58002100839e6459725a3f873232b513e924268c5c3e730b11e843eea9e21f",
+      "bytes": 18416
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/SequenceBeamSearch.hpp",
+      "sha256": "4836676b6a3e178683415ddcc04f8d3d07eec3d71b0e97f259f910a64abcaaaf",
+      "bytes": 43121
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/SubsetRankCodec.hpp",
+      "sha256": "3a5070be324711c39d7e54bdce592ba58b99956b966d72fc2c7d101c20a77696",
+      "bytes": 13620
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/SynchronizedRepairCodec.hpp",
+      "sha256": "460bcdf87622120a9b79243799db30ccd56c0e14a35496d4c351c2afbcf30360",
+      "bytes": 18654
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_correlation_qoi.cpp",
+      "sha256": "cd6866710d49d7790ac15979d75f2176fe747f9937eaaed43b43aa645979d789",
+      "bytes": 15516
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_feasible_value_targets.cpp",
+      "sha256": "9f6098cbab6a3be28ef71cc31a6f3b685f58f9afb2e9e6e999c70bda40998957",
+      "bytes": 10113
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_paper_budget.cpp",
+      "sha256": "d0bd4eb74f356a324ef3a14f9ff7a736c9c45a46c8bdd308e609eeba5a99be97",
+      "bytes": 2901
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_qpet_upstream_safety.cpp",
+      "sha256": "5162f693d8711a8bc424d02621bc46bbdef99ab3eb56579236672cb7e8dffaa0",
+      "bytes": 12652
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_sequence_beam_search.cpp",
+      "sha256": "9804bca5af6c7614ce31ee9e7687a469fb1c34f3105b577fecf7d1037c2f3f80",
+      "bytes": 17094
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_serf_official.cpp",
+      "sha256": "4913c8b404b51a7d9fc5c4023cf90b3a664bc52e535eadb0207f0fcc14fd9e96",
+      "bytes": 2566
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_subset_rank_codec.cpp",
+      "sha256": "0d5513ff5581de3ef064142303c47542e0cbd0ebb9b9705c567534271f28dc7a",
+      "bytes": 12186
+    },
+    {
+      "path": "code/tools/qpet_correlation_guided_20261013_v1/test_synchronized_repair_codec.cpp",
+      "sha256": "4286fa24148dfb2a0aad03c151ee5e3f45c0be557dd00228db03226e32c4a020",
+      "bytes": 11783
+    },
+    {
+      "path": "code/tools/sz2016/build_wsl.sh",
+      "sha256": "a41f8fb28e1e61b3359cc3fd6554739960ada61d570d2f4856620d04fabfbd06",
+      "bytes": 3150
+    },
+    {
+      "path": "code/tools/sz2016/COPYRIGHT.txt",
+      "sha256": "7654b0a847590aa39360b1d5e1ec36d8b5bfe3f42544cda9971af8ca8d68197f",
+      "bytes": 1740
+    },
+    {
+      "path": "code/tools/sz2016/patches/0001-use-compress-bound-for-zlib-output.patch",
+      "sha256": "63b4a1cc5758f5f71167f40c6b87b569fccda3f291b39e0891e7f44ffb45a0be",
+      "bytes": 2180
+    },
+    {
+      "path": "code/tools/sz2016/sz2016_batch.c",
+      "sha256": "5545d516b81dc0ff057eb40f950e220882030969ea6cbaba1f6e2d2e995efec5",
+      "bytes": 13986
+    },
+    {
+      "path": "code/tools/sz2016/sz2016.config",
+      "sha256": "1d17c31061be76254e86cde1cde2adff09a819fd47097ee3da2a4c8f0a46a5ac",
+      "bytes": 297
+    },
+    {
+      "path": "code/experiments/vldb/framework_ablation_20261017/replay.py",
+      "sha256": "b0698a68cb56cafe7c6b880e5e9d6ba98fb7ee7a964a93562fb6824c192eddd9",
+      "bytes": 11915
+    }
+  ]
+}

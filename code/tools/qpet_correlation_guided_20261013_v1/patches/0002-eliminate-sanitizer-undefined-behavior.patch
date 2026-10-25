@@ -1,0 +1,343 @@
+diff --git a/include/QoZ/api/impl/SZInterp.hpp b/include/QoZ/api/impl/SZInterp.hpp
+index a94068e2..f599b23b 100644
+--- a/include/QoZ/api/impl/SZInterp.hpp
++++ b/include/QoZ/api/impl/SZInterp.hpp
+@@ -1732,7 +1732,7 @@ double Tuning(QoZ::Config &conf, T *data){
+         conf.sampleBlockSize=minimum_sbs;
+ 
+ 
+-    while(conf.sampleBlockSize>=shortest_edge)
++    while(conf.sampleBlockSize>=shortest_edge and conf.sampleBlockSize>1)
+         conf.sampleBlockSize/=2;
+ 
+ 
+@@ -2976,4 +2976,4 @@ char *SZ_compress_Interp_lorenzo(QoZ::Config &conf, T *data, size_t &outSize) {
+ }
+ 
+ 
+-#endif
+\ No newline at end of file
++#endif
+diff --git a/include/QoZ/encoder/HuffmanEncoder.hpp b/include/QoZ/encoder/HuffmanEncoder.hpp
+index d5f23f20..8540ae05 100644
+--- a/include/QoZ/encoder/HuffmanEncoder.hpp
++++ b/include/QoZ/encoder/HuffmanEncoder.hpp
+@@ -215,7 +215,7 @@ namespace QoZ {
+                     }
+                 }
+             }
+-            *reinterpret_cast<size_t *>(bytes) = outSize;
++            memcpy(bytes, &outSize, sizeof(outSize));
+             bytes += sizeof(size_t) + outSize;
+             return outSize;
+         }
+@@ -234,7 +234,8 @@ namespace QoZ {
+             size_t i = 0, byteIndex = 0, count = 0;
+             int r;
+             node n = treeRoot;
+-            size_t encodedLength = *reinterpret_cast<const size_t *>(bytes);
++            size_t encodedLength = 0;
++            memcpy(&encodedLength, bytes, sizeof(encodedLength));
+             bytes += sizeof(size_t);
+             if (n->t) //root->t==1 means that all state values are the same (constant)
+             {
+@@ -489,7 +490,8 @@ namespace QoZ {
+             if (n->t) {
+                 huffmanTree->code[n->c] = (unsigned long *) malloc(2 * sizeof(unsigned long));
+                 if (len <= 64) {
+-                    (huffmanTree->code[n->c])[0] = out1 << (64 - len);
++                    (huffmanTree->code[n->c])[0] =
++                        len == 0 ? out1 : out1 << (64 - len);
+                     (huffmanTree->code[n->c])[1] = out2;
+                 } else {
+                     (huffmanTree->code[n->c])[0] = out1;
+diff --git a/include/QoZ/quantizer/IntegerQuantizer.hpp b/include/QoZ/quantizer/IntegerQuantizer.hpp
+index f43115b2..822a3f7e 100644
+--- a/include/QoZ/quantizer/IntegerQuantizer.hpp
++++ b/include/QoZ/quantizer/IntegerQuantizer.hpp
+@@ -3,7 +3,9 @@
+ 
+ #include <cstring>
+ #include <cassert>
++#include <cmath>
+ #include <iostream>
++#include <limits>
+ #include <vector>
+ #include "QoZ/def.hpp"
+ #include "QoZ/quantizer/Quantizer.hpp"
+@@ -35,11 +37,19 @@ namespace QoZ {
+         int quantize(T data, T pred) {
+             
+             T diff = data - pred;
+-            int quant_index = (int) (fabs(diff) * this->error_bound_reciprocal) + 1;
+-            if (quant_index < this->radius * 2) {
++            const auto scaled_diff = fabs(diff) * this->error_bound_reciprocal;
++            const auto scaled_diff_wide = static_cast<long double>(scaled_diff);
++            const auto doubled_radius = static_cast<long long>(this->radius) * 2LL;
++            if (this->radius <= 0 ||
++                doubled_radius > static_cast<long long>(std::numeric_limits<int>::max()) ||
++                !std::isfinite(scaled_diff_wide) || scaled_diff_wide < 0.0L ||
++                scaled_diff_wide >= static_cast<long double>(doubled_radius - 1LL))
++                return 0;
++            int quant_index = (int) scaled_diff + 1;
++            if (static_cast<long long>(quant_index) < doubled_radius) {
+                 quant_index >>= 1;
+                 int half_index = quant_index;
+-                quant_index <<= 1;
++                quant_index *= 2;
+                 int quant_index_shifted;
+                 if (diff < 0) {
+                     quant_index = -quant_index;
+@@ -64,11 +74,22 @@ namespace QoZ {
+ 
+             
+             T diff = data - pred;
+-            int quant_index = (int) (fabs(diff) * this->error_bound_reciprocal) + 1;
+-            if (quant_index < this->radius * 2) {
++            const auto scaled_diff = fabs(diff) * this->error_bound_reciprocal;
++            const auto scaled_diff_wide = static_cast<long double>(scaled_diff);
++            const auto doubled_radius = static_cast<long long>(this->radius) * 2LL;
++            if (this->radius <= 0 ||
++                doubled_radius > static_cast<long long>(std::numeric_limits<int>::max()) ||
++                !std::isfinite(scaled_diff_wide) || scaled_diff_wide < 0.0L ||
++                scaled_diff_wide >= static_cast<long double>(doubled_radius - 1LL)) {
++                if(save_unpred)
++                    unpred.push_back(data);
++                return 0;
++            }
++            int quant_index = (int) scaled_diff + 1;
++            if (static_cast<long long>(quant_index) < doubled_radius) {
+                 quant_index >>= 1;
+                 int half_index = quant_index;
+-                quant_index <<= 1;
++                quant_index *= 2;
+                 int quant_index_shifted;
+                 if (diff < 0) {
+                     quant_index = -quant_index;
+@@ -96,11 +117,23 @@ namespace QoZ {
+ 
+             
+             T diff = ori - pred;
+-            int quant_index = (int) (fabs(diff) * this->error_bound_reciprocal) + 1;
+-            if (quant_index < this->radius * 2) {
++            const auto scaled_diff = fabs(diff) * this->error_bound_reciprocal;
++            const auto scaled_diff_wide = static_cast<long double>(scaled_diff);
++            const auto doubled_radius = static_cast<long long>(this->radius) * 2LL;
++            if (this->radius <= 0 ||
++                doubled_radius > static_cast<long long>(std::numeric_limits<int>::max()) ||
++                !std::isfinite(scaled_diff_wide) || scaled_diff_wide < 0.0L ||
++                scaled_diff_wide >= static_cast<long double>(doubled_radius - 1LL)) {
++                if(save_unpred)
++                    unpred.push_back(ori);
++                dest = ori;
++                return 0;
++            }
++            int quant_index = (int) scaled_diff + 1;
++            if (static_cast<long long>(quant_index) < doubled_radius) {
+                 quant_index >>= 1;
+                 int half_index = quant_index;
+-                quant_index <<= 1;
++                quant_index *= 2;
+                 int quant_index_shifted;
+                 if (diff < 0) {
+                     quant_index = -quant_index;
+@@ -164,16 +197,18 @@ namespace QoZ {
+             c[0] = 0b00000010;
+             c += 1;
+              //std::cout << "saving eb = " << this->error_bound << ", unpred_num = "  << unpred.size() << std::endl;
+-            *reinterpret_cast<double *>(c) = this->error_bound;
++            memcpy(c, &this->error_bound, sizeof(this->error_bound));
+             
+             c += sizeof(double);
+-            *reinterpret_cast<int *>(c) = this->radius;
++            memcpy(c, &this->radius, sizeof(this->radius));
+            
+             c += sizeof(int);
+-            *reinterpret_cast<size_t *>(c) = unpred.size();
++            const size_t unpred_size = unpred.size();
++            memcpy(c, &unpred_size, sizeof(unpred_size));
+            
+             c += sizeof(size_t);
+-            memcpy(c, unpred.data(), unpred.size() * sizeof(T));
++            if (unpred_size != 0)
++                memcpy(c, unpred.data(), unpred_size * sizeof(T));
+             c += unpred.size() * sizeof(T);
+         };
+ 
+@@ -182,17 +217,20 @@ namespace QoZ {
+             assert(remaining_length > (sizeof(uint8_t) + sizeof(T) + sizeof(int)));
+             c += sizeof(uint8_t);
+             remaining_length -= sizeof(uint8_t);
+-            this->error_bound = *reinterpret_cast<const double *>(c);
++            memcpy(&this->error_bound, c, sizeof(this->error_bound));
+            
+             this->error_bound_reciprocal = 1.0 / this->error_bound;
+             c += sizeof(double);
+-            this->radius = *reinterpret_cast<const int *>(c);
++            memcpy(&this->radius, c, sizeof(this->radius));
+             
+             c += sizeof(int);
+-            size_t unpred_size = *reinterpret_cast<const size_t *>(c);
++            size_t unpred_size = 0;
++            memcpy(&unpred_size, c, sizeof(unpred_size));
+             
+             c += sizeof(size_t);
+-            this->unpred = std::vector<T>(reinterpret_cast<const T *>(c), reinterpret_cast<const T *>(c) + unpred_size);
++            this->unpred.resize(unpred_size);
++            if (unpred_size != 0)
++                memcpy(this->unpred.data(), c, unpred_size * sizeof(T));
+             c += unpred_size * sizeof(T);
+             // std::cout << "loading: eb = " << this->error_bound << ", unpred_num = "  << unpred.size() << std::endl;
+             // reset index
+diff --git a/include/QoZ/quantizer/QoIIntegerQuantizer.hpp b/include/QoZ/quantizer/QoIIntegerQuantizer.hpp
+index 1bc247eb..c4b7d0bc 100644
+--- a/include/QoZ/quantizer/QoIIntegerQuantizer.hpp
++++ b/include/QoZ/quantizer/QoIIntegerQuantizer.hpp
+@@ -4,6 +4,8 @@
+ #include <cstring>
+ #include <cassert>
+ #include <algorithm>
++#include <cmath>
++#include <limits>
+ #include <vector>
+ #include "QoZ/quantizer/Quantizer.hpp"
+ 
+@@ -22,11 +24,19 @@ namespace QoZ {
+         int quantize(T data, T pred, T_eb eb) {
+             if(eb == 0) return 0;
+             T diff = data - pred;
+-            int quant_index = (int) (fabs(diff) / eb) + 1;
+-            if (quant_index < this->radius * 2) {
++            const auto scaled_diff = fabs(diff) / eb;
++            const auto scaled_diff_wide = static_cast<long double>(scaled_diff);
++            const auto doubled_radius = static_cast<long long>(this->radius) * 2LL;
++            if (this->radius <= 0 ||
++                doubled_radius > static_cast<long long>(std::numeric_limits<int>::max()) ||
++                !std::isfinite(scaled_diff_wide) || scaled_diff_wide < 0.0L ||
++                scaled_diff_wide >= static_cast<long double>(doubled_radius - 1LL))
++                return 0;
++            int quant_index = (int) scaled_diff + 1;
++            if (static_cast<long long>(quant_index) < doubled_radius) {
+                 quant_index >>= 1;
+                 int half_index = quant_index;
+-                quant_index <<= 1;
++                quant_index *= 2;
+                 int quant_index_shifted;
+                 if (diff < 0) {
+                     quant_index = -quant_index;
+@@ -55,11 +65,21 @@ namespace QoZ {
+             //     std::cout << data << " " << pred << " " << eb << std::endl;
+             // }
+             T diff = data - pred;
+-            int quant_index = (int) (fabs(diff) / eb) + 1;
+-            if (quant_index < this->radius * 2) {
++            const auto scaled_diff = fabs(diff) / eb;
++            const auto scaled_diff_wide = static_cast<long double>(scaled_diff);
++            const auto doubled_radius = static_cast<long long>(this->radius) * 2LL;
++            if (this->radius <= 0 ||
++                doubled_radius > static_cast<long long>(std::numeric_limits<int>::max()) ||
++                !std::isfinite(scaled_diff_wide) || scaled_diff_wide < 0.0L ||
++                scaled_diff_wide >= static_cast<long double>(doubled_radius - 1LL)) {
++                unpred.push_back(data);
++                return 0;
++            }
++            int quant_index = (int) scaled_diff + 1;
++            if (static_cast<long long>(quant_index) < doubled_radius) {
+                 quant_index >>= 1;
+                 int half_index = quant_index;
+-                quant_index <<= 1;
++                quant_index *= 2;
+                 int quant_index_shifted;
+                 if (diff < 0) {
+                     quant_index = -quant_index;
+@@ -91,11 +111,22 @@ namespace QoZ {
+                 return 0;
+             }
+             T diff = ori - pred;
+-            int quant_index = (int) (fabs(diff) / eb) + 1;
+-            if (quant_index < this->radius * 2) {
++            const auto scaled_diff = fabs(diff) / eb;
++            const auto scaled_diff_wide = static_cast<long double>(scaled_diff);
++            const auto doubled_radius = static_cast<long long>(this->radius) * 2LL;
++            if (this->radius <= 0 ||
++                doubled_radius > static_cast<long long>(std::numeric_limits<int>::max()) ||
++                !std::isfinite(scaled_diff_wide) || scaled_diff_wide < 0.0L ||
++                scaled_diff_wide >= static_cast<long double>(doubled_radius - 1LL)) {
++                unpred.push_back(ori);
++                dest = ori;
++                return 0;
++            }
++            int quant_index = (int) scaled_diff + 1;
++            if (static_cast<long long>(quant_index) < doubled_radius) {
+                 quant_index >>= 1;
+                 int half_index = quant_index;
+-                quant_index <<= 1;
++                quant_index *= 2;
+                 int quant_index_shifted;
+                 if (diff < 0) {
+                     quant_index = -quant_index;
+@@ -160,11 +191,13 @@ namespace QoZ {
+             c[0] = 0b00000010;
+             c += 1;
+             // std::cout << "saving eb = " << this->error_bound << ", unpred_num = "  << unpred.size() << std::endl;
+-            *reinterpret_cast<int *>(c) = this->radius;
++            memcpy(c, &this->radius, sizeof(this->radius));
+             c += sizeof(int);
+-            *reinterpret_cast<size_t *>(c) = unpred.size();
++            const size_t unpred_size = unpred.size();
++            memcpy(c, &unpred_size, sizeof(unpred_size));
+             c += sizeof(size_t);
+-            memcpy(c, unpred.data(), unpred.size() * sizeof(T));
++            if (unpred_size != 0)
++                memcpy(c, unpred.data(), unpred_size * sizeof(T));
+             c += unpred.size() * sizeof(T);
+             // std::cout << "unpred size = " << unpred.size() << std::endl;
+         };
+@@ -172,11 +205,14 @@ namespace QoZ {
+         void load(const unsigned char *&c, size_t &remaining_length) {
+             assert(remaining_length > (sizeof(uint8_t) + sizeof(T) + sizeof(int)));
+             c += sizeof(uint8_t);
+-            this->radius = *reinterpret_cast<const int *>(c);
++            memcpy(&this->radius, c, sizeof(this->radius));
+             c += sizeof(int);
+-            size_t unpred_size = *reinterpret_cast<const size_t *>(c);
++            size_t unpred_size = 0;
++            memcpy(&unpred_size, c, sizeof(unpred_size));
+             c += sizeof(size_t);
+-            this->unpred = std::vector<T>(reinterpret_cast<const T *>(c), reinterpret_cast<const T *>(c) + unpred_size);
++            this->unpred.resize(unpred_size);
++            if (unpred_size != 0)
++                memcpy(this->unpred.data(), c, unpred_size * sizeof(T));
+             c += unpred_size * sizeof(T);
+             // reset index
+             index = 0;
+@@ -299,23 +335,23 @@ namespace QoZ {
+             c[0] = 0b00000010;
+             c += 1;
+             // std::cout << "saving eb = " << this->error_bound << ", unpred_num = "  << unpred.size() << std::endl;
+-            *reinterpret_cast<double *>(c) = eb_base;
++            memcpy(c, &eb_base, sizeof(eb_base));
+             c += sizeof(double);
+-            *reinterpret_cast<double *>(c) = log_base;
++            memcpy(c, &log_base, sizeof(log_base));
+             c += sizeof(double);
+-            *reinterpret_cast<int *>(c) = this->radius;
++            memcpy(c, &this->radius, sizeof(this->radius));
+             c += sizeof(int);
+         };
+ 
+         void load(const unsigned char *&c, size_t &remaining_length) {
+             assert(remaining_length > (sizeof(uint8_t) + sizeof(T) + sizeof(int)));
+             c += sizeof(uint8_t);
+-            eb_base = *reinterpret_cast<const double *>(c);            
++            memcpy(&eb_base, c, sizeof(eb_base));
+             c += sizeof(double);
+-            log_base = *reinterpret_cast<const double *>(c);
++            memcpy(&log_base, c, sizeof(log_base));
+             c += sizeof(double);
+             set_reciprocal();
+-            this->radius = *reinterpret_cast<const int *>(c);
++            memcpy(&this->radius, c, sizeof(this->radius));
+             c += sizeof(int);
+         }
+ 

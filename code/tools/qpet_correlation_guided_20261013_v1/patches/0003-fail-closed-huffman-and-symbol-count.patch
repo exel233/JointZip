@@ -1,0 +1,350 @@
+diff --git a/include/QoZ/compressor/SZInterpolationCompressor.hpp b/include/QoZ/compressor/SZInterpolationCompressor.hpp
+index e2030317..f32f552c 100644
+--- a/include/QoZ/compressor/SZInterpolationCompressor.hpp
++++ b/include/QoZ/compressor/SZInterpolationCompressor.hpp
+@@ -19,6 +19,7 @@
+ #include <cstring>
+ #include <cmath>
+ #include <limits>
++#include <string>
+ namespace QoZ {
+     template<class T, uint N, class Quantizer, class Encoder, class Lossless>
+     class SZInterpolationCompressor : public concepts::CompressorInterface<T> {//added heritage
+@@ -44,6 +45,7 @@ namespace QoZ {
+         T *decompress(uchar const *cmpData, const size_t &cmpSize, T *decData) {
+             size_t remaining_length = cmpSize;
+             uchar *buffer = lossless.decompress(cmpData, remaining_length);
++            const auto *buffer_end = buffer + remaining_length;
+             int levelwise_predictor_levels;
+             bool blockwiseTuning;
+             uchar const *buffer_pos = buffer;
+@@ -96,10 +98,24 @@ namespace QoZ {
+             init();   
+           
+             //QoZ::Timer timer(true);
+-            quantizer.load(buffer_pos, remaining_length);
+-            encoder.load(buffer_pos, remaining_length);
+-            quant_inds = encoder.decode(buffer_pos, num_elements);
+-            encoder.postprocess_decode();
++            bool encoder_loaded = false;
++            try {
++                quantizer.load(buffer_pos, remaining_length);
++                if (buffer_pos > buffer_end)
++                    throw CodecFormatError("interpolation payload header exceeds its raw buffer");
++                remaining_length = static_cast<size_t>(buffer_end - buffer_pos);
++                encoder_loaded = true;
++                encoder.load(buffer_pos, remaining_length);
++                quant_inds = encoder.decode(buffer_pos, num_elements, remaining_length);
++                encoder.postprocess_decode();
++                encoder_loaded = false;
++            }
++            catch (...) {
++                if (encoder_loaded)
++                    encoder.postprocess_decode();
++                lossless.postdecompress_data(buffer);
++                throw;
++            }
+ 
+             lossless.postdecompress_data(buffer);
+             //timer.stop("decode");
+@@ -555,6 +571,11 @@ namespace QoZ {
+              //   timer.stop("prediction");//can remove later
+             
+             //timer.start();
++            if (quant_inds.size() != num_elements)
++                throw CodecInvariantError(
++                        "interpolation encoder produced " +
++                        std::to_string(quant_inds.size()) + " symbols for " +
++                        std::to_string(num_elements) + " tensor values");
+             assert(quant_inds.size() == num_elements);
+             encoder.preprocess_encode(quant_inds, 0);
+             size_t bufferSize = 1.2 * (quantizer.size_est() + encoder.size_est() + sizeof(T) * quant_inds.size())
+@@ -7335,4 +7356,3 @@ namespace QoZ {
+ 
+ 
+ #endif
+-
+diff --git a/include/QoZ/compressor/SZQoIInterpolationCompressor.hpp b/include/QoZ/compressor/SZQoIInterpolationCompressor.hpp
+index 70e2c29f..3e184e00 100644
+--- a/include/QoZ/compressor/SZQoIInterpolationCompressor.hpp
++++ b/include/QoZ/compressor/SZQoIInterpolationCompressor.hpp
+@@ -19,6 +19,7 @@
+ #include <cstring>
+ #include <cmath>
+ #include <limits>
++#include <string>
+ 
+ //now, only non-tuning mode works. Should remove all tuning-related codes if not used in final version.
+ namespace QoZ {
+@@ -46,6 +47,7 @@ namespace QoZ {
+         T *decompress(uchar const *cmpData, const size_t &cmpSize, T *decData) {
+             size_t remaining_length = cmpSize;
+             uchar *buffer = lossless.decompress(cmpData, remaining_length);
++            const auto *buffer_end = buffer + remaining_length;
+             int levelwise_predictor_levels;
+             bool blockwiseTuning;
+             uchar const *buffer_pos = buffer;
+@@ -98,11 +100,25 @@ namespace QoZ {
+             init();   
+           
+             //QoZ::Timer timer(true);
+-            quantizer_eb.load(buffer_pos, remaining_length);
+-            quantizer.load(buffer_pos, remaining_length);
+-            encoder.load(buffer_pos, remaining_length);
+-            quant_inds = encoder.decode(buffer_pos, num_elements);
+-            encoder.postprocess_decode();
++            bool encoder_loaded = false;
++            try {
++                quantizer_eb.load(buffer_pos, remaining_length);
++                quantizer.load(buffer_pos, remaining_length);
++                if (buffer_pos > buffer_end)
++                    throw CodecFormatError("QoI interpolation payload header exceeds its raw buffer");
++                remaining_length = static_cast<size_t>(buffer_end - buffer_pos);
++                encoder_loaded = true;
++                encoder.load(buffer_pos, remaining_length);
++                quant_inds = encoder.decode(buffer_pos, num_elements, remaining_length);
++                encoder.postprocess_decode();
++                encoder_loaded = false;
++            }
++            catch (...) {
++                if (encoder_loaded)
++                    encoder.postprocess_decode();
++                lossless.postdecompress_data(buffer);
++                throw;
++            }
+ 
+             //QoZ::writefile<int>("quant_inds_dcmp.test", quant_inds.data(),quant_inds.size());//added.
+ 
+@@ -562,6 +578,12 @@ namespace QoZ {
+ 
+             
+             //timer.start();
++            if (num_elements > std::numeric_limits<size_t>::max() / 2 ||
++                quant_inds.size() != 2 * num_elements)
++                throw CodecInvariantError(
++                        "QoI interpolation encoder produced " +
++                        std::to_string(quant_inds.size()) + " symbols for " +
++                        std::to_string(num_elements) + " tensor values");
+             //assert(quant_inds.size() == 2*num_elements);
+             encoder.preprocess_encode(quant_inds, 0);
+             size_t bufferSize = 1.2 * (quantizer.size_est() + encoder.size_est() + sizeof(T) * quant_inds.size())
+@@ -7438,4 +7460,3 @@ namespace QoZ {
+ 
+ 
+ #endif
+-
+diff --git a/include/QoZ/def.hpp b/include/QoZ/def.hpp
+index 4464d867..1b0c4938 100644
+--- a/include/QoZ/def.hpp
++++ b/include/QoZ/def.hpp
+@@ -2,12 +2,28 @@
+ #define _DEF_HPP
+ 
+ #include <cmath>
++#include <stdexcept>
+ 
+ namespace QoZ {
+ 
+     typedef unsigned int uint;
+     typedef unsigned char uchar;
+ 
++    class CodecError : public std::runtime_error {
++    public:
++        using std::runtime_error::runtime_error;
++    };
++
++    class CodecFormatError : public CodecError {
++    public:
++        using CodecError::CodecError;
++    };
++
++    class CodecInvariantError : public CodecError {
++    public:
++        using CodecError::CodecError;
++    };
++
+ }
+ 
+ 
+diff --git a/include/QoZ/encoder/Encoder.hpp b/include/QoZ/encoder/Encoder.hpp
+index debe71fd..d7e92a92 100644
+--- a/include/QoZ/encoder/Encoder.hpp
++++ b/include/QoZ/encoder/Encoder.hpp
+@@ -20,6 +20,17 @@ namespace QoZ {
+ 
+             virtual std::vector<T> decode(const uchar *&bytes, size_t targetLength) = 0;
+ 
++            virtual std::vector<T> decode(
++                    const uchar *&bytes, size_t targetLength, size_t &remaining_length) {
++                const auto *begin = bytes;
++                auto decoded = decode(bytes, targetLength);
++                const auto consumed = static_cast<size_t>(bytes - begin);
++                if (consumed > remaining_length)
++                    throw CodecFormatError("encoder consumed beyond the available payload");
++                remaining_length -= consumed;
++                return decoded;
++            }
++
+             virtual void postprocess_decode() = 0;
+ 
+             virtual uint save(uchar *&c) = 0;
+diff --git a/include/QoZ/encoder/HuffmanEncoder.hpp b/include/QoZ/encoder/HuffmanEncoder.hpp
+index 8540ae05..080286ca 100644
+--- a/include/QoZ/encoder/HuffmanEncoder.hpp
++++ b/include/QoZ/encoder/HuffmanEncoder.hpp
+@@ -12,6 +12,7 @@
+ #include <cstring>
+ #include <cstdio>
+ #include <iostream>
++#include <limits>
+ #include <map>
+ #include <unordered_map>
+ #include <unordered_set>
+@@ -229,37 +230,57 @@ namespace QoZ {
+ 
+         //perform decoding
+         std::vector<T> decode(const uchar *&bytes, size_t targetLength) {
++            auto remaining_length = std::numeric_limits<size_t>::max();
++            return decode(bytes, targetLength, remaining_length);
++        }
++
++        //perform decoding with the physical number of bytes still available
++        std::vector<T> decode(
++                const uchar *&bytes, size_t targetLength, size_t &remaining_length) override {
++            if (remaining_length < sizeof(size_t))
++                throw CodecFormatError("truncated Huffman encoded-length field");
+             node t = treeRoot;
+             std::vector<T> out(targetLength);
+-            size_t i = 0, byteIndex = 0, count = 0;
+-            int r;
++            size_t count = 0;
+             node n = treeRoot;
+             size_t encodedLength = 0;
+             memcpy(&encodedLength, bytes, sizeof(encodedLength));
+             bytes += sizeof(size_t);
++            remaining_length -= sizeof(size_t);
++            if (encodedLength > remaining_length)
++                throw CodecFormatError("Huffman bitstream length exceeds the available payload");
++            if (n == nullptr)
++                throw CodecFormatError("Huffman decoder has no tree root");
+             if (n->t) //root->t==1 means that all state values are the same (constant)
+             {
+                 for (count = 0; count < targetLength; count++)
+                     out[count] = n->c + offset;
++                bytes += encodedLength;
++                remaining_length -= encodedLength;
+                 return out;
+             }
+ 
+-            for (i = 0; count < targetLength; i++) {
+-                byteIndex = i >> 3; //i/8
+-                r = i % 8;
+-                if (((bytes[byteIndex] >> (7 - r)) & 0x01) == 0)
+-                    n = n->left;
+-                else
+-                    n = n->right;
+-
+-                if (n->t) {
+-                    out[count] = n->c + offset;
+-                    n = t;
+-                    count++;
++            for (size_t byteIndex = 0;
++                 byteIndex < encodedLength && count < targetLength;
++                 byteIndex++) {
++                for (int r = 0; r < 8 && count < targetLength; r++) {
++                    if (((bytes[byteIndex] >> (7 - r)) & 0x01) == 0)
++                        n = n->left;
++                    else
++                        n = n->right;
++                    if (n == nullptr)
++                        throw CodecFormatError("Huffman bitstream selected an empty tree child");
++                    if (n->t) {
++                        out[count] = n->c + offset;
++                        n = t;
++                        count++;
++                    }
+                 }
+             }
+-            if (t != n) printf("garbage input\n");
++            if (count != targetLength)
++                throw CodecFormatError("Huffman bitstream ended before the requested symbol count");
+             bytes += encodedLength;
++            remaining_length -= encodedLength;
+             return out;
+         }
+ 
+@@ -270,24 +291,34 @@ namespace QoZ {
+ 
+         //load Huffman tree
+         void load(const uchar *&c, size_t &remaining_length) {
++            if (remaining_length < sizeof(T) + 2 * sizeof(int))
++                throw CodecFormatError("truncated Huffman tree header");
+             read(offset, c, remaining_length);
+-            nodeCount = bytesToInt32_bigEndian(c);
+-            int stateNum = bytesToInt32_bigEndian(c + sizeof(int)) * 2;
++            const auto encoded_node_count = bytesToInt32_bigEndian(c);
++            const auto encoded_state_half = bytesToInt32_bigEndian(c + sizeof(int));
++            if (encoded_node_count <= 0 || encoded_state_half <= 0 ||
++                encoded_state_half > std::numeric_limits<int>::max() / 2)
++                throw CodecFormatError("invalid Huffman tree dimensions");
++            nodeCount = static_cast<unsigned int>(encoded_node_count);
++            int stateNum = encoded_state_half * 2;
+             size_t encodeStartIndex;
+-            if (nodeCount <= 256)
+-                encodeStartIndex = 1 + 3 * nodeCount * sizeof(unsigned char) + nodeCount * sizeof(T);
+-            else if (nodeCount <= 65536)
+-                encodeStartIndex =
+-                        1 + 2 * nodeCount * sizeof(unsigned short) + nodeCount * sizeof(unsigned char) +
+-                        nodeCount * sizeof(T);
+-            else
+-                encodeStartIndex =
+-                        1 + 2 * nodeCount * sizeof(unsigned int) + nodeCount * sizeof(unsigned char) +
+-                        nodeCount * sizeof(T);
++            const size_t bytes_per_node = nodeCount <= 256
++                    ? 3 * sizeof(unsigned char) + sizeof(T)
++                    : nodeCount <= 65536
++                            ? 2 * sizeof(unsigned short) + sizeof(unsigned char) + sizeof(T)
++                            : 2 * sizeof(unsigned int) + sizeof(unsigned char) + sizeof(T);
++            if (nodeCount > (std::numeric_limits<size_t>::max() - 1) / bytes_per_node)
++                throw CodecFormatError("Huffman tree byte count overflow");
++            encodeStartIndex = 1 + static_cast<size_t>(nodeCount) * bytes_per_node;
++            const auto fixed_header = 2 * sizeof(int);
++            if (remaining_length < fixed_header ||
++                encodeStartIndex > remaining_length - fixed_header)
++                throw CodecFormatError("Huffman tree exceeds the available payload");
+ 
+             huffmanTree = createHuffmanTree(stateNum);
+             treeRoot = reconstruct_HuffTree_from_bytes_anyStates(c + sizeof(int) + sizeof(int), nodeCount);
+             c += sizeof(int) + sizeof(int) + encodeStartIndex;
++            remaining_length -= sizeof(int) + sizeof(int) + encodeStartIndex;
+             loaded = true;
+         }
+ 
+diff --git a/include/QoZ/encoder/QoIEncoder.hpp b/include/QoZ/encoder/QoIEncoder.hpp
+index 5b337dd5..6bb042f2 100644
+--- a/include/QoZ/encoder/QoIEncoder.hpp
++++ b/include/QoZ/encoder/QoIEncoder.hpp
+@@ -77,6 +77,16 @@ namespace QoZ {
+             return eb_inds;
+         }
+ 
++        std::vector<T> decode(
++                const uchar *&bytes, size_t targetLength, size_t &remaining_length) override {
++            std::vector<T> eb_inds =
++                    eb_encoder.decode(bytes, targetLength, remaining_length);
++            std::vector<T> data_inds =
++                    data_encoder.decode(bytes, targetLength, remaining_length);
++            eb_inds.insert(eb_inds.end(), data_inds.begin(), data_inds.end());
++            return eb_inds;
++        }
++
+         void postprocess_decode() {
+             eb_encoder.postprocess_decode();
+             data_encoder.postprocess_decode();
+@@ -100,4 +110,4 @@ namespace QoZ {
+ 
+ }
+ 
+-#endif
+\ No newline at end of file
++#endif

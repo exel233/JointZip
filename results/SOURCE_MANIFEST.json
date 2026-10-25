@@ -1,0 +1,252 @@
+[
+  {
+    "file": "paper/data/backend_overview.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/backend_overview.csv",
+    "bytes": 1464,
+    "sha256": "9f72fd08a15f0a573f4445252b025ff5744e139c85c730fefa52307dcbe8c076"
+  },
+  {
+    "file": "paper/data/backend_timing_table.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/backend_timing_table.csv",
+    "bytes": 897,
+    "sha256": "408fcecdad5688ea7f3cfb291c6b505ed46750a708742ee7cfbc8ddb5a5daf1b"
+  },
+  {
+    "file": "paper/data/downstream_gain_cells.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/downstream_gain_cells.csv",
+    "bytes": 99817,
+    "sha256": "fb41833f8182ec0cac90036eb689cb08c2acc4669f0722d02a42d19d4caeefbc"
+  },
+  {
+    "file": "paper/data/downstream_large_table.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/downstream_large_table.csv",
+    "bytes": 46523,
+    "sha256": "1bb0fd28f1eb422d93f26e2ac54253f104a43ba5ccadfa02c846818e6e68eda6"
+  },
+  {
+    "file": "paper/data/downstream_large_table.tex",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/downstream_large_table.tex",
+    "bytes": 8421,
+    "sha256": "f1604cb8af1e068667208e87597d4f0a42a09743156b12a626949ca227cb51a8"
+  },
+  {
+    "file": "paper/data/ablation_detail_tables.tex",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_detail_tables.tex",
+    "bytes": 27370,
+    "sha256": "84545656dbedef9a327179433040000973508063cc760ab719205a0d75c70d8e"
+  },
+  {
+    "file": "paper/data/ablation_classification_table.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_classification_table.csv",
+    "bytes": 1530,
+    "sha256": "279d388664309fa1d66a3953cd50668a768a5344c3f3cbae2a4669c6d35bffc0"
+  },
+  {
+    "file": "paper/data/ablation_constraint_pass.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_constraint_pass.csv",
+    "bytes": 3075,
+    "sha256": "0c9ef91de4ba1137ed2d7cb8e0651a627be2e2d350921cc075d4a2a819de3927"
+  },
+  {
+    "file": "paper/data/ablation_correction_cr_overview.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_correction_cr_overview.csv",
+    "bytes": 1501,
+    "sha256": "189a5b3fdcd32d258c7902abf3aacde9eb5abfabcc55857e9884920ca2a8ac98"
+  },
+  {
+    "file": "paper/data/ablation_correction_table.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_correction_table.csv",
+    "bytes": 1000,
+    "sha256": "b4ec17ddb5aa9e621fb9494720f3d22e860dacfaae2bb486ffb174f42a2a0122"
+  },
+  {
+    "file": "paper/data/ablation_cr_overview.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_cr_overview.csv",
+    "bytes": 4992,
+    "sha256": "803c08658768bcc7d0a1c1a33c96b81a14e26669eae49e100fa817acf1231532"
+  },
+  {
+    "file": "paper/data/ablation_downstream_contrast_overview.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_downstream_contrast_overview.csv",
+    "bytes": 19199,
+    "sha256": "d8f945cf4570b5b7292b149d488716073cf4d225638a25b0c5d1f40475672cfc"
+  },
+  {
+    "file": "paper/data/ablation_downstream_overview.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_downstream_overview.csv",
+    "bytes": 4214,
+    "sha256": "2621baa41166813d7eecd2d78ce1e82a34e171a54b425013f4816cbae6d37922"
+  },
+  {
+    "file": "paper/data/ablation_forecast_table.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_forecast_table.csv",
+    "bytes": 877,
+    "sha256": "b9cfc5fc4a1b9820f60a2b65bbd5435f9fd45254c7df49705d319622e43ffd77"
+  },
+  {
+    "file": "paper/data/ablation_mechanism_overview.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_mechanism_overview.csv",
+    "bytes": 6369,
+    "sha256": "afa314680e70cfc0c8ba7faa54d5c7b2add3fcbedad9df85adc936a88be6eeaa"
+  },
+  {
+    "file": "paper/data/correction_outcomes.csv",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/correction_outcomes.csv",
+    "bytes": 1490,
+    "sha256": "b4a5e736651cf697e996e7aa4ce493aa90e0873a05eb94ece3a39c46b57318e5"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_full_20261015_v1/downstream_pairs.csv",
+    "source": "experiments/results/vldb_framework_full_20261015_v1/analysis/downstream_pairs.csv",
+    "bytes": 4809164,
+    "sha256": "29470b0cadc4a9ff589ac69a1106058edbdb05f6fe45407d1f52f3668ed3a992"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_full_20261015_v1/cr_pairs.csv",
+    "source": "experiments/results/vldb_framework_full_20261015_v1/analysis/cr_pairs.csv",
+    "bytes": 675998,
+    "sha256": "7e1aa9da652f086e375008139273891aa6839a602f28b1f14a02e82319249f26"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_full_20261015_v1/downstream_summary.csv",
+    "source": "experiments/results/vldb_framework_full_20261015_v1/analysis/downstream_summary.csv",
+    "bytes": 41070,
+    "sha256": "0c7b632637e970305ec890b44da675166ba59313ab191669b699a8eca0f063ad"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_full_20261015_v1/cr_summary.csv",
+    "source": "experiments/results/vldb_framework_full_20261015_v1/analysis/cr_summary.csv",
+    "bytes": 6317,
+    "sha256": "62b241afc0ada31e2aacdfa9dfd3a7923836ddfc3cd6d80076eb9a31f26c1bce"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_full_20261015_v1/timing_pairs.csv",
+    "source": "experiments/results/vldb_framework_full_20261015_v1/analysis/timing_pairs.csv",
+    "bytes": 11832,
+    "sha256": "f2f6dde1cd17e23da911b9a9a383761b807e94e8e60585200598fbc5bd388330"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_full_20261015_v1/timing_summary.csv",
+    "source": "experiments/results/vldb_framework_full_20261015_v1/analysis/timing_summary.csv",
+    "bytes": 964,
+    "sha256": "64face615a647b49786f57044d5cd265867f615f28221b57e03ad7f3c1324b0c"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_sz2016_20261016_v1/downstream_pairs.csv",
+    "source": "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/downstream_pairs.csv",
+    "bytes": 976947,
+    "sha256": "8e7e373a5f90535596522b7ed204d57d08d031ebeb973757e10388a7c99c5f5c"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_sz2016_20261016_v1/cr_pairs.csv",
+    "source": "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/cr_pairs.csv",
+    "bytes": 136739,
+    "sha256": "6a68f6f284265c4cb4d45cbebeb7eded2e43f173fc01836930c1e24d9a85eda0"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_sz2016_20261016_v1/downstream_summary.csv",
+    "source": "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/downstream_summary.csv",
+    "bytes": 8365,
+    "sha256": "23dbea7de412b54824d539c42e3670c0c308a1b447b3279786f0e0b1b7b8db95"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_sz2016_20261016_v1/cr_summary.csv",
+    "source": "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/cr_summary.csv",
+    "bytes": 1463,
+    "sha256": "b573ed7bbf9c608245ff31ebb8debf7315114fedb0f494fb5947e4511de6fadc"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_sz2016_20261016_v1/timing_pairs.csv",
+    "source": "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/timing_pairs.csv",
+    "bytes": 2629,
+    "sha256": "307d41bb935dab5832f6159611c1dc0bfeb3e978c21e489073b31ab12a994d49"
+  },
+  {
+    "file": "results/native_comparison/vldb_framework_sz2016_20261016_v1/timing_summary.csv",
+    "source": "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/timing_summary.csv",
+    "bytes": 384,
+    "sha256": "d400616c277ae8922846db76451c65768fa62d24d2ea5cbaa49905782e13ad79"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/cr_overview.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/cr_overview.csv",
+    "bytes": 4992,
+    "sha256": "803c08658768bcc7d0a1c1a33c96b81a14e26669eae49e100fa817acf1231532"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/cr_arm_summary.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/cr_arm_summary.csv",
+    "bytes": 29417,
+    "sha256": "3b3a12eb0fc9a3a826c3942e58ffc6253faa04f354a278fa6d1ab8dd942b6c0f"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/cr_contrast_summary.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/cr_contrast_summary.csv",
+    "bytes": 41544,
+    "sha256": "0ee39b56fc3db44bdc6178ff4415083fe59b7a4de783263bd55a815556900ff9"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/downstream_arm_summary.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/downstream_arm_summary.csv",
+    "bytes": 168190,
+    "sha256": "b7353230e927cef2f26c9d05ce1fb6d92c9c6aeff6491e36a1d7fa2b0a9a2194"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/downstream_contrast_summary.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/downstream_contrast_summary.csv",
+    "bytes": 337855,
+    "sha256": "0b0b216f7a2c67fdb3a26dc416f8bb78fb84cb77db33b772819e698539c6d3bb"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/downstream_contrast_overview.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/downstream_contrast_overview.csv",
+    "bytes": 19199,
+    "sha256": "d8f945cf4570b5b7292b149d488716073cf4d225638a25b0c5d1f40475672cfc"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/downstream_overview.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/downstream_overview.csv",
+    "bytes": 4214,
+    "sha256": "2621baa41166813d7eecd2d78ce1e82a34e171a54b425013f4816cbae6d37922"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/downstream_source_model.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/downstream_source_model.csv",
+    "bytes": 846415,
+    "sha256": "a2b36dd37a36aa1f027c6eb41269224296e23c4ac37a23bf19f51f3066792ba0"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/mechanism_summary.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/mechanism_summary.csv",
+    "bytes": 12431,
+    "sha256": "99cc1fe5dce361360b826640f61d46052c49d99bd37c22d227cc92504cb20a21"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/mechanism_overview.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/mechanism_overview.csv",
+    "bytes": 6369,
+    "sha256": "afa314680e70cfc0c8ba7faa54d5c7b2add3fcbedad9df85adc936a88be6eeaa"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/correction_cr_overview.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/correction_cr_overview.csv",
+    "bytes": 1501,
+    "sha256": "189a5b3fdcd32d258c7902abf3aacde9eb5abfabcc55857e9884920ca2a8ac98"
+  },
+  {
+    "file": "results/ablation/vldb_framework_ablation_20261017_v1/consumer_coverage.csv",
+    "source": "experiments/results/vldb_framework_ablation_20261017_v1/analysis/consumer_coverage.csv",
+    "bytes": 126,
+    "sha256": "9ddfe22d1eb8e9d0215316955509e324ac644cf3fb287f2719ac9950b0ed23c0"
+  },
+  {
+    "file": "paper/JointZip_implementation_results.pdf",
+    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/ablation_results.tex",
+    "bytes": 401297,
+    "sha256": "cd076ddb277b64f1e7b58d8b73427bc8a9a0c24466fc70d30ebdbc4848ca22e6",
+    "original_pdf_sha256": "1891332e6df5d9b3f11f3a3410291a11b1fdfae406501c2433d7d8c169f8a8e5",
+    "original_pdf_bytes": 403060,
+    "source_basis": "papers/VLDB/2026_vldb_readability_20261020/delivery/JointZip_implementation_results_20261020.pdf",
+    "transformation": "Presentation-only rebuild: named authors and Chalmers affiliations; pending publication DOI/pages and proceedings frontmatter omitted. Scientific body and included result table sources are byte-identical to the October 21 manuscript sources."
+  }
+]

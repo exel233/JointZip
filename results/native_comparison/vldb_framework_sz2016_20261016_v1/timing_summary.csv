@@ -1,0 +1,2 @@
+﻿backend,paired_conditions,source_count,native_encode_seconds_mean,jointzip_encode_seconds_mean,encode_ratio_source_geomean,native_decode_seconds_mean,jointzip_decode_seconds_mean,decode_ratio_source_geomean,cr_ratio_source_geomean
+sz2016,12,6,0.032471007250933326,5.648388467499292,173.91686166407686,0.01652356399911999,0.05592709966792123,1.9751972509832678,0.7354598372194788

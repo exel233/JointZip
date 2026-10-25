@@ -1,0 +1,31 @@
+{
+  "snapshot_date": "2026-10-25",
+  "table_reproduction": {
+    "passed": true,
+    "output_bytes_equal_reference": true,
+    "source_model_setting_cells": 1008,
+    "selected_downstream_pairs": 16884,
+    "selected_compression_pairs": 3024,
+    "backend_macro_values_checked": 60,
+    "max_macro_absolute_error": 4.440892098500626e-14
+  },
+  "offline_codec_test": {
+    "cached_encode_bytes_equal": true,
+    "checkpoint_replay": true,
+    "config_identity_keyed": true,
+    "era_gate_enforced": true,
+    "exact_fallback": true,
+    "fixed_trace_all_caps": true,
+    "negative_constraint_flags_preserved": true,
+    "original_numeric_tolerance": true,
+    "passed": true,
+    "scope": "offline fake-backend invariants; official smoke still required",
+    "serf_rounding_key": true,
+    "unrepaired_cache_only": true,
+    "zfp_effective_key": true
+  },
+  "reference_sources_verified": 44,
+  "result_files_verified": 41,
+  "native_backends_rebuilt_for_this_snapshot": false,
+  "full_experiments_rerun_for_this_snapshot": false
+}

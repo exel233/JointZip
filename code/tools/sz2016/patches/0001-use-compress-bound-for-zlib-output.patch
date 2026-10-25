@@ -1,0 +1,49 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Neural Compression Lab <noreply@example.com>
+Date: Thu, 20 Aug 2026 00:00:00 +0000
+Subject: [PATCH] Allocate the SZ zlib output at compressBound
+
+SZ 1.1's zlib_compress2 wrapper allocates only dataLength bytes for the
+deflate output and also advertises only dataLength bytes through avail_out.
+For a valid but poorly compressible short SZ flat-byte representation,
+deflate needs a few bytes more than its input and returns Z_BUF_ERROR.  The
+wrapper returns that negative error through an unsigned-long return type; the
+public SZ call then exposes it as a negative compressed size even though the
+prediction and quantization stages completed successfully.
+
+Use zlib's documented compressBound(dataLength) capacity.  This changes no SZ
+prediction, quantization, serialized symbols, deflate settings, or public
+symbols.  Deflate emits byte-identical streams whenever the old allocation was
+already large enough, while valid short streams now have enough output space.
+---
+ sz/src/test_zlib.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/sz/src/test_zlib.c b/sz/src/test_zlib.c
+--- a/sz/src/test_zlib.c
++++ b/sz/src/test_zlib.c
+@@ -36,8 +36,9 @@ ulong zlib_compress2(char* data, ulong dataLength, char** compressBytes, int le
+ {
+ 	ulong outSize;
++	ulong outputCapacity = compressBound(dataLength);
+ 	ulong* outSize_ = (ulong*)malloc(sizeof(ulong));
+-	*outSize_ = dataLength;	
+-	*compressBytes = (char*)malloc(sizeof(char)*dataLength);
++	*outSize_ = outputCapacity;
++	*compressBytes = (char*)malloc(sizeof(char)*outputCapacity);
+ 	
+ 	z_stream stream;
+     int err;
+@@ -50,8 +51,8 @@ ulong zlib_compress2(char* data, ulong dataLength, char** compressBytes, int le
+     if ((uLong)stream.avail_in != dataLength) return Z_BUF_ERROR;
+ #endif
+     stream.next_out = *compressBytes;
+-    stream.avail_out = dataLength;
+-    if ((uLong)stream.avail_out != dataLength) return Z_BUF_ERROR;
++    stream.avail_out = outputCapacity;
++    if ((uLong)stream.avail_out != outputCapacity) return Z_BUF_ERROR;
+ 
+     stream.zalloc = (alloc_func)0;
+     stream.zfree = (free_func)0;
+-- 
+2.43.0
