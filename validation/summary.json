@@ -1,6 +1,6 @@
 {
   "snapshot_date": "2026-11-01",
-  "tag": "vldb2027-submission-20261101",
+  "tag": "vldb2027-submission-20261101-r2",
   "table_reproduction": {
     "displayed_data_rows": 51,
     "displayed_paired_cells": 306,

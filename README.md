@@ -58,8 +58,8 @@ The original native runs are not rerun when this package is assembled. Source sn
 
 ## Version, citation, and terms
 
-The `vldb2027-submission-20261101` tag fixes this supporting-material snapshot. Use that tag or its commit hash when citing results, rather than a moving branch. Citation metadata is supplied in [CITATION.cff](CITATION.cff). This repository does not claim a PVLDB reproducibility badge or acceptance of the manuscript.
+The `vldb2027-submission-20261101-r2` tag fixes this supporting-material snapshot. Use that tag or its commit hash when citing results, rather than a moving branch. Citation metadata is supplied in [CITATION.cff](CITATION.cff). This repository does not claim a PVLDB reproducibility badge or acceptance of the manuscript.
 
 Raw benchmarks, pretrained weights, and native binaries are obtained separately from their providers. Dataset/model identities and preparation entry points are documented. The project has not granted a new project-wide software licence; upstream dependencies retain their own terms, including Serf's non-commercial restriction. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-The [tool-use statement](docs/TOOL_USE.md) documents assistance as required by the PVLDB publication policy. Private logs, credentials, local caches, and unrelated working files are not part of the artifact.
+Private logs, credentials, local caches, and unrelated working files are not part of the artifact. See the brief [tool-use statement](docs/TOOL_USE.md).
