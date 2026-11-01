@@ -1,0 +1,118 @@
+{
+  "schema": "jointzip.public-supplemental-results-verification.v1",
+  "passed": true,
+  "scope": "Fresh standard-library verification of public recorded results, rosters, recorded-metric gates, and aggregation only.",
+  "fresh_encoding": false,
+  "fresh_decoding": false,
+  "fresh_model_inference": false,
+  "fresh_bootstrap": false,
+  "private_sources_accessed": false,
+  "checks": 109951,
+  "numeric_comparisons": 13034,
+  "max_absolute_aggregation_difference": 1.1368683772161603e-13,
+  "aggregation_tolerances": {
+    "relative": 1e-12,
+    "absolute": 1e-10
+  },
+  "constraint_slack": 1.4210854715202004e-14,
+  "source_manifest": {
+    "files": 34,
+    "byte_exact_source_copies_recorded": 32,
+    "documented_path_only_public_copies": 2,
+    "scope": "Current public bytes checked against the release manifest. Private originals are not opened."
+  },
+  "acf_case": {
+    "downstream_rows": 42,
+    "contrast_rows": 24,
+    "mechanism_rows": 12,
+    "window_rows": 12780,
+    "stream_groups": 12,
+    "all_enabled_gates_pass_from_recorded_window_metrics": true,
+    "classification_contrast_signs": {
+      "improved": 8,
+      "tied": 8,
+      "declined": 0
+    },
+    "paired_intervals": "Copied JSON/CSV agreement and endpoint order checked; bootstrap not regenerated.",
+    "not_recomputed_from_signals": [
+      "E/R/ACF per-window diagnostics",
+      "traditional_ACF_max",
+      "correction payload bytes",
+      "lossless-window identity",
+      "classifier predictions"
+    ]
+  },
+  "uniform_lossless_accounting": {
+    "condition_rows": 3024,
+    "macro_rows": 18,
+    "setting_rows": 42,
+    "source_rows": 84,
+    "unique_inputs": 172,
+    "condition_outcomes": {
+      "higher": 2500,
+      "tied": 0,
+      "lower": 524
+    },
+    "byte_to_cr_and_ratio_checked": true,
+    "complete_accounting_from_recorded_sizes_checked": true,
+    "all_aggregate_groups_recomputed_from_public_condition_rows": true,
+    "aggregation": "Geometric means within each source, then equal-source geometric means; each source table groups all its declared settings.",
+    "not_rechecked": [
+      "Encoded artifact file lengths",
+      "bitwise decode",
+      "payload identities against unbundled streams"
+    ]
+  },
+  "historical_audit_records_not_rerun": {
+    "acf": {
+      "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/audit/FINAL_RESULT_AUDIT.json",
+      "recorded_passed": true,
+      "recorded_comparison_count": 39018,
+      "recorded_max_absolute_difference": 1.3322676295501878e-14,
+      "recorded_scope": "Saved CSV, predictions, reconstructions and full JZF1 only; no encoding or consumer inference; report-serialization failure independently checked before final COMPLETE."
+    },
+    "lossless": {
+      "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/INDEPENDENT_REVIEW.json",
+      "recorded_passed": true,
+      "recorded_scope": "Independent standard-library inspection of saved files, byte comparisons, metadata/roster verification, and re-aggregation. No decoding, encoding or downstream inference rerun.",
+      "roster_file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/ROSTER_IDENTITY_REVIEW.public.json",
+      "recorded_roster_passed": true
+    }
+  },
+  "input_sha256": {
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/COMPLETE.json": "85d21b8f016085d8f272bc18df28569f5cf6879d33c901d96256d08cf581f3c4",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/PROTOCOL.public.json": "8b7616d1f09a25de23e59249801c30416063a44b1bdb9153cee7bc7d98f6e2b3",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/RESULTS.json": "9a93d29d830c7860a45decd5d217c3dd1b8c98dca045763ad0d5303cb8293706",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/TEST_BINDING.json": "f97f171d40c482477d1def65e1ba717a753110965fd171dcf6660a81396beadc",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/TRAIN_PREPARATION.json": "e91b685416f2a233344d8eae4b70f3661789508a1af30faa3da202584127bcad",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ERA_tau001_windows.csv": "8390b992b1fe8c014e64eec81a386c703e07097adacbb52e49c529166c0a3572",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ERA_tau005_windows.csv": "35b23344b63364ce9e999ec640e10218a53fb178b86d26f5318533ebca8533b4",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ER_windows.csv": "c3f60ecd426ff180bcda56f5904c033788ae4140d04d652d932bc0394463b22a",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ERA_tau001_windows.csv": "1df1aa2d36fa779f7b6f5b40c1d7e983c593e92edde12043b0b3bd8ec1848662",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ERA_tau005_windows.csv": "af9cbbb28dc68559242dd6fa6981f453ff6769d991e25849c350018ea1c709d6",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ER_windows.csv": "af9cbbb28dc68559242dd6fa6981f453ff6769d991e25849c350018ea1c709d6",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ERA_tau001_windows.csv": "b5cdcd2918c369b180b57b91a1bbfd6636809e26f108791000861777ab7c96e5",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ERA_tau005_windows.csv": "1ffb556cc2b8244207f91e4f28626e74891a63cab14af7f868f15e6513d2433f",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ER_windows.csv": "1ffb556cc2b8244207f91e4f28626e74891a63cab14af7f868f15e6513d2433f",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ERA_tau001_windows.csv": "c10cd79b8c82220d1275bd1f2ab4147324acf4df69472071b46f3fd4c0bd9305",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ERA_tau005_windows.csv": "e6a9812a28ffa49c3deb36681e87e00365ef56e9d232ce9638e4ccdcfb5527c4",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ER_windows.csv": "e6a9812a28ffa49c3deb36681e87e00365ef56e9d232ce9638e4ccdcfb5527c4",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/audit/FINAL_RESULT_AUDIT.json": "f8fe0c074099f83e9e797f00ffde7c386b675edbb85d123d557514c7a7562101",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/contrasts.csv": "144f9a2c09d957f46c01f4f37de008635ed5c94676379f86d518754347ba2fff",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/downstream.csv": "d35046e242090bfaf8221e04b8f5c172fd13109d12bb4866893f0af3fb5be7aa",
+    "results/acf_case/vldb_acf_forda_fordb_20261028_v1/mechanism.csv": "d1276cd059c585ebb229c4d81a06693481f50965ed8c560bd0fb2edf467c4b33",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/COMPLETE.json": "884c3add1558fdb1c82ccc2217bf96a5d6611b6b3473204e466572eaf5124ad5",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/INDEPENDENT_REVIEW.json": "976f23a2f2b70f5116d3efec511100b44f8faed462d1dfa366e6164bb1acd5e7",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/PROTOCOL.json": "d6849734caf5bf7c421e3a9f03c4869c3936fa4b48b6fff1352c9d2bf58e261e",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/REPORT_MANIFEST.json": "1cbbdef5f6757df6d74336ad44e44d38ea95e2c51fdadb82b799988005e6385a",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/ROSTER_IDENTITY_REVIEW.public.json": "f8e33aa52cad4f6648e8b02718776282a9e001c1f55f1ea97a2d76e5f2764ff4",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/SUMMARY.json": "299f3540d31afb678b8cfc6c9fb73c91411ebf115a19db1e068dc4d3e256a20a",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/channel_mapping.json": "6ef0765e68be9dd7c4c6743aed602d485f622ee1fe3933024e6614171d239c53",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/conditions.csv": "2c5f30f3ce5dee309480f49c8a60be52fe622e2281aaf83e82ddd715da240ce3",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/lossless_files.json": "e93804a1118fcdb7fc111241970878088246348e6f25c89f4d86fbb49c7c5785",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/macros.csv": "6748f94635c6b3012b47279b1dbd535ca42cd70364a199f800e098881431c1bc",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/settings.csv": "464f6c2e43c67a6ec2b2c189981a11603fcabe1da477c3af9f5e1b79efefe4c4",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/source_bindings.json": "6416bd517f23293bb444e71f2aa57d4c0550618f15953cf09c199f57c6059c3d",
+    "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/sources.csv": "65d5d7e39aada724f49e6d52563a735e56d92543cf4f87e3090c02af3830e2e5"
+  }
+}

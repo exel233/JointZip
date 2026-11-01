@@ -2,94 +2,64 @@
 
 **A Compression Framework for Preserving Pointwise Accuracy, Correlation, and Autocorrelation**
 
-JointZip compresses time-series archives for reuse when future analytical tasks
-are not known at ingestion time. It combines statistics-guided, window-level
-error-bound search over a replaceable compressor with decoded-output validation
-and correction. The final representation accounts for the compressed base,
-correction records, and framing, and supports source-independent decoding.
+JointZip compresses time-series archives whose future analytical tasks are not known at ingestion time. It wraps a compatible error-bounded compressor with window-level parameter search, validation of decoded values, and selective correction. Pointwise error (E), source–reconstruction Pearson correlation (R), and finite-lag autocorrelation (A) are checked together. Stored corrections and metadata are included in the encoded size, and decoding needs no original data.
 
-This repository contains the implementation reference, supplementary experimental
-record, and result data accompanying the manuscript. The evaluated backend
-configurations are SZ3, ZFP, SPERR-1D, Serf-XOR, Serf-QT, and SZ2016. The four
-application families are forecasting, classification, retrieval, and anomaly
-detection.
+This is the supporting artifact for the manuscript by **Xingjian Jiang and Yinan Yu**, Chalmers University of Technology. It covers six backend configurations (SZ3, ZFP, SPERR-1D, Serf-XOR, Serf-QT, and SZ2016), four downstream task families, the E/ER/EA/ERA ablation, the FordA/FordB ACF study, and the common complete-file accounting comparison with lossless Zstd.
 
-## Contents
+## Start here
 
-| Location | Contents |
+| Goal | Entry point |
 | --- | --- |
-| [code/](code/) | Selected source snapshots for the current framework and native interfaces |
-| [docs/CODE.md](docs/CODE.md) | Code map, dependencies, build requirements, and synthetic checks |
-| [paper/JointZip_implementation_results.pdf](paper/JointZip_implementation_results.pdf) | Supplementary implementation details and experimental results |
-| [paper/data/](paper/data/) | Current manuscript table and figure inputs |
-| [results/](results/) | Final native-comparison pairs and framework-ablation summaries |
-| [docs/RESULTS.md](docs/RESULTS.md) | Result provenance, units, aggregation, and interpretation |
-| [scripts/reproduce_large_table.py](scripts/reproduce_large_table.py) | Rebuild the detailed downstream table from retained results |
-| [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | Backend dependencies and their respective terms |
+| Understand what is supplied and how it maps to the paper | [Artifact guide](docs/ARTIFACT.md) |
+| Rebuild the detailed table, including task means | [Table script](scripts/reproduce_large_table.py) |
+| Rebuild the four-task E/ER/EA/ERA bar figure | [Figure script](scripts/reproduce_ablation_figure.py) |
+| Check the two later studies from retained numeric results | [Supplemental checks](scripts/verify_supplemental_results.py) |
+| Read implementation and run a small codec-interface test | [Code guide](docs/CODE.md) |
+| Obtain benchmarks and model sources | [Data guide](docs/DATASETS.md) |
+| Configure and run the scientific workflows | [Experiment guide](docs/EXPERIMENTS.md) |
+| Inspect every result, unit, aggregation rule, and mixed outcome | [Result guide](docs/RESULTS.md) |
+| Check source provenance and dependency terms | [Source manifest](code/SOURCE_MANIFEST.json), [notices](THIRD_PARTY_NOTICES.md) |
 
-## Reproduce the detailed result table
+## Rebuild tables and check results
 
-Python 3.10 or newer is sufficient for this step; it uses the standard library
-and does not run compression or model inference.
+Python 3.10+ and its standard library are sufficient. These commands read the released result CSVs and do not run compression, training, or inference.
 
 ```sh
 python scripts/reproduce_large_table.py
+python scripts/verify_supplemental_results.py
+python scripts/verify_artifact.py
 ```
 
-The script reads the finalized per-input comparison CSVs, checks exact coverage,
-and writes `generated/downstream_large_table.csv`, its LaTeX counterpart, and
-`generated/generation_audit.json`. It verifies 16,884 selected downstream pairs,
-3,024 TEST compression pairs, and all 1,008 source/model/setting cells before
-reproducing the manuscript's 43-row detailed table. It also checks the current
-backend-level aggregate values. The retained reference inputs are not modified.
+Outputs go to `generated/`. The large table includes 51 display rows: 36 source/setting quality rows, eight source-equal Mean rows, and seven compression rows. Its 306 paired cells are checked against the manuscript's unrounded data. Use `--check-only` with either of the first two commands for a read-only check.
 
-## Run the codec-interface checks
+To regenerate Figure 5:
 
-Install the small Python dependency set, then run:
+```sh
+python -m pip install -r requirements-figures.txt
+python scripts/reproduce_ablation_figure.py
+```
+
+This produces the four-task, six-backend, four-arm figure (96 bars), including the labeled axis breaks and signed ERA–ER changes. The distributed PDF and PNG are in [paper/figures](paper/figures/).
+
+## Check the codec interface
 
 ```sh
 python -m pip install -r requirements.txt
 python -B tests/smoke_offline.py
 ```
 
-See [docs/CODE.md](docs/CODE.md) for the test scope and native build requirements. The
-small synthetic checks exercise framing, independent decoding, and ablation
-isolation. Native codec experiments additionally require the pinned third-party
-libraries, the specified datasets, and the experiment environment. This release
-provides source references and result reproduction; it does not bundle the
-original machine environment or promise a one-command rerun of every experiment.
+These synthetic checks exercise framing, source-independent decoding, and constraint-ablation isolation using test backends. They do **not** certify a native codec or reproduce the reported task scores. The native build and experiment instructions are in [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
 
-## Reading the results
+## Scope of the evidence
 
-- `E`, `R`, and `A` denote pointwise accuracy, source-reconstruction Pearson
-  correlation, and finite-lag autocorrelation requirements. The complete ablation
-  compares E, ER, EA, ERA, and ERA without correction.
-- Native and JointZip comparisons use the same requested error tolerance. They
-  do not impose the same achieved compression ratio.
-- Forecasting and anomaly results include the prescribed strict, medium, and
-  loose settings. Classification and retrieval use the UCR stress setting.
-- Downstream pair files already average the prescribed seeds. Table reproduction
-  then balances inputs within each source/model/setting and averages models
-  equally. Backend-level quality summaries balance sources and settings.
-- Compression ratios charge complete encoded representations. Classification
-  and retrieval share the same UCR compression artifacts; these are not counted
-  twice when aggregating storage.
-- Correction comparisons use the recorded ERA candidate trajectories. Their
-  scope is the contribution of correction within those candidate pools, not
-  optimality of a separately tuned algorithm without correction. Improvements,
-  ties, and declines are retained in the released results.
-- These datasets were also used during development. The results characterize
-  the stated experimental setting and do not establish universal downstream
-  guarantees.
+The result archive preserves all prescribed settings and unfavorable outcomes. Comparisons use the same requested tolerance, not a matched compression ratio. The correction ablation is conditional on the recorded candidate pools. The Ford study includes both A thresholds and both classification consumers, while the lossless study charges both methods' complete files under common metadata. These are exploratory results on the specified workloads, not a guarantee of improvement on every unknown task.
 
-## Dependencies and data
+The original native runs are not rerun when this package is assembled. Source snapshots, recorded scientific results, and the checks executed for this release are identified separately. See [validation](validation/) and the artifact guide.
 
-Third-party codec sources, compiled binaries, model weights, and raw datasets
-are not redistributed in this repository. Backend sources and build requirements
-are identified in the code documentation and notices. Data acquisition and
-full experiment setup require the original providers' terms.
+## Version, citation, and terms
 
-The original project sources did not include a project-level licence; this
-snapshot does not introduce a new licence grant. Third-party projects retain
-their own terms, including the research/non-commercial restriction noted for
-Serf. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The `vldb2027-submission-20261101` tag fixes this supporting-material snapshot. Use that tag or its commit hash when citing results, rather than a moving branch. Citation metadata is supplied in [CITATION.cff](CITATION.cff). This repository does not claim a PVLDB reproducibility badge or acceptance of the manuscript.
+
+Raw benchmarks, pretrained weights, and native binaries are obtained separately from their providers. Dataset/model identities and preparation entry points are documented. The project has not granted a new project-wide software licence; upstream dependencies retain their own terms, including Serf's non-commercial restriction. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The [tool-use statement](docs/TOOL_USE.md) documents assistance as required by the PVLDB publication policy. Private logs, credentials, local caches, and unrelated working files are not part of the artifact.

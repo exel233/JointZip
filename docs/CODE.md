@@ -1,11 +1,26 @@
-# Source snapshot and focused reproduction
+# Source snapshot and reproduction scope
 
-This artifact includes the JointZip codec source used by the October 15--17,
-2026 experiments, the local native adapters and repair implementation, and a
-portable synthetic invariant test. Original source files are copied without
-modification; `code/SOURCE_MANIFEST.json` records their SHA256 hashes and sizes.
+This artifact includes the JointZip codec, experiment drivers, downstream
+consumers, preparation and training entry points, and analysis code for the
+October 15, 16, 17, 28 and 31, 2026 evaluations. It includes the local Python
+import dependencies and the dynamic local ResNet snapshot and freeze verifier,
+alongside the native adapters and repair implementation. The original directory
+layout is retained under `code/`.
+
+`code/SOURCE_MANIFEST.json` records the original relative path, original SHA256,
+distributed SHA256 and size of each file. Of the 153 original files, 139 are
+byte-identical and 14 replace only machine-specific path prefixes. The one
+additional `code/protocols/frozen_parameters.json` file extracts scientific
+parameters and the complete 172-input roster from the recorded freezes, with
+source hashes. It is a reference, not a runnable replacement for those freezes.
+No encoder, selection policy, threshold, model or metric was changed.
+
 The repository does not contain upstream library checkouts, compiled binaries,
-datasets, model weights, or the historical experiment execution environment.
+raw datasets, model weights, full historical encoded payloads or the original
+execution environment. See [EXPERIMENTS.md](EXPERIMENTS.md) for the dependency
+order and actual entry points, and [DATASETS.md](DATASETS.md) for pinned data and
+model sources. The source release supports inspection and reconstruction of the
+workflow, while the public result tables support analysis without model runs.
 
 ## Portable offline test
 
@@ -45,7 +60,18 @@ Paths in this table are relative to `code/`.
 | `experiments/vldb/framework_sz2016_20261016/codec.py` | Same framework policy extended to SZ2016. |
 | `experiments/vldb/framework_ablation_20261017/codec.py` | Six-backend E/ER/EA/ERA variants and fixed-trajectory correction ablation. |
 | `experiments/vldb/framework_ablation_20261017/native_cache.py` | Persistent cache of unrepaired native candidates, with source and backend identity checks. |
+| `experiments/vldb/framework_{full_20261015,sz2016_20261016,ablation_20261017}/` | `prepare.py`, `pipeline.py`, `compress.py`, `consumer_*.py`, `closeout.py` and `report.py`: frozen orchestration and four-task consumers. The notation in this row denotes three actual directories. |
+| `experiments/vldb/framework_full_20261015/{density,timing}.py` | VAL-only search-density experiment and separate paired timing. SZ2016 has its own `timing.py`. |
+| `experiments/vldb/acf_forda_fordb_20261028/` | TRAIN-only preparation, checks, frozen classifiers, full TEST execution and FordA/FordB analysis. |
+| `experiments/vldb/uniform_lossless_accounting_20261031/` | Common JCF1 wrapper, source-independent lossless decode and full-file comparison using saved payloads. |
 | `experiments/vldb/framework_*/container.py` | Source-independent JZF1 decode entry point. |
+| `experiments/vldb/main_benchmark/{tasks_data,benchmark}.py` | Original six-source data coordinates, splits, origins and Raw-trained Ridge setup. |
+| `experiments/vldb/downstream_models/dlinear.py` | Pinned official DLinear model loading and the declared local training protocol. |
+| `experiments/vldb/downstream_expansion/` | Raw model preparation, PatchTST and foundation-model adapters, UCR models/retrieval and NASA anomaly consumers. |
+| `experiments/vldb/{baseline_expansion_20260922,simple_correction_20260929,paper_budget_guided_20261013_v1}/` | Historical shared input and consumer dependencies imported by the October drivers. Only the required sources and selected preparation entry points are included, not every historical experiment. |
+| `src/neural_compression_lab/` | Local historical framing and data helpers imported by the preparation code. These are not an additional evaluated JointZip backend. |
+| `protocols/frozen_parameters.json` | Published threshold settings, run coverage, input identities, Ford feature protocol and foundation-model revisions. |
+| `docs/vldb/FRAMEWORK_*_PROTOCOL_202610*.md` | Original written protocols for the main experiments and ablations. |
 | `experiments/vldb/main_benchmark/modern_codecs.py` | SZ3/ZFP process adapter and build-identity handling. |
 | `experiments/vldb/main_benchmark/sz3_api_cli.cpp` | Local SZ3 API wrapper. |
 | `experiments/vldb/framework_full_20261015/native/fixed_backend.cpp` | Local SPERR-1D and Serf encode/decode bridge. |
@@ -113,7 +139,7 @@ whose default relative location differs from those modules' directories:
 ```sh
 export JOINTZIP_FULL_BRIDGE="$PWD/experiments/vldb/framework_full_20261015/native/fixed_backend"
 export JOINTZIP_FULL_BRIDGE_MANIFEST="$PWD/experiments/vldb/framework_full_20261015/native/manifest.json"
-export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH="$PWD:$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
 ```
 
 Further overrides are `JOINTZIP_PILOT_REPAIR`, `JOINTZIP_PILOT_ANCHORS`,
@@ -135,12 +161,27 @@ port to a new runtime identity.
 
 ## Scope of experimental reproduction
 
-The complete historical experiment launcher is not included. Its data loading,
-consumer-model setup, prior-result reuse and checkpoint orchestration depend on
-the original local environment. This source snapshot is therefore not a
-turnkey reproduction of all 27,900 compression configurations and 220,462
-consumer records. The consumer total includes validation, seeds and reuse;
-it is not the number of independent datasets or fresh model inferences.
+The Python scientific drivers and their local import dependencies are included.
+They retain their checks on input identities, parent results, native binaries,
+model checkpoints and preflight records. Machine-specific Windows launchers,
+mount setup, execution logs and stored runtime environments are not included.
+The Python drivers therefore are not turnkey reproduction commands for an empty
+checkout. They will stop when the required historical artifacts are missing.
+
+Two public path prefixes replace private machine locations in the affected
+files: `/opt/jointzip` denotes the `code/` workspace and
+`/opt/jointzip-home` denotes the environment containing `.venvs/`, `.cache/`
+and `.local/cth_expansion_runs/`. These are placeholders, not installed
+locations. The manifest records the exact affected files and line numbers.
+Configure an equivalent directory layout or make a documented path-only port
+before starting a new run. Do not bypass failed hash or completeness checks.
+The adapted source has a different source identity; an existing historical
+freeze must not be relabeled as a fresh reproduction of that adapted code.
+
+The four E/R/A arms plus the correction-ablation arm contain 27,900
+compression configurations and 220,462 consumer records. The consumer total
+includes validation, seeds and reuse; it is not the number of independent
+datasets or fresh model inferences.
 
 The fixed-trajectory no-correction comparison additionally requires the ordered
 per-window metadata from the matching ERA run. Disabling correction and doing
@@ -149,7 +190,9 @@ an encoding-speed measurement. Results and paper figures in other repository
 directories document the published evaluation separately from this focused
 code smoke test.
 
-The portable test was validated with Python 3.10, NumPy 1.26.4 and
-python-zstandard 0.25.0 on Windows. All 44 original files in the source manifest
-were checked against their source SHA256 hashes. Native compilation and full
-experimental reruns were not part of this validation.
+The portable test was originally validated with Python 3.10, NumPy 1.26.4 and
+python-zstandard 0.25.0 on Windows. The expanded snapshot was checked for source
+hash correspondence, documented path-only changes, Python syntax and local
+import coverage. Native compilation, model downloads and scientific reruns were
+not performed when preparing the expanded snapshot. These are separate from
+the validation of the recorded experiment results.

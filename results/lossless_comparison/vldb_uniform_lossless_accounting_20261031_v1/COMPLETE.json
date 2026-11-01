@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "conditions": 3024,
+  "unique_inputs": 172,
+  "generated_complete_files": 3196,
+  "counts": {
+    "lower": 524,
+    "higher": 2500
+  },
+  "macro_groups": 18,
+  "macro_higher": 18,
+  "macro_cr_ratio_range": [
+    1.5205821908497485,
+    20.135500419090906
+  ],
+  "macro_geomean_byte_savings_range": [
+    34.23571537154668,
+    95.03364714466258
+  ],
+  "source_groups": 84,
+  "source_macro_higher": 83,
+  "channel_name_mappings": 24,
+  "lossless_bitwise_verified": 172,
+  "jointzip_preserved_original_file_bitwise": 3024,
+  "jointzip_existing_independent_decode_evidence_verified": 3024,
+  "jointzip_native_decoders_rerun": false,
+  "scientific_encoders_rerun": false,
+  "downstream_rerun": false,
+  "all_required_metadata_counted": true,
+  "provenance_external_for_both": true,
+  "only_wrapper_changed": true,
+  "errors": [],
+  "example": {
+    "task": "anomaly",
+    "dataset": "SMAP",
+    "sid": "544_SMAP_id_14_Sensor_tr_1978_1st_4450",
+    "backend": "zfp",
+    "point": "strict",
+    "raw_bytes": 23744,
+    "jointzip_complete_bytes": 5258,
+    "lossless_complete_bytes": 3691,
+    "jointzip_cr": 4.515785469760365,
+    "lossless_cr": 6.432945001354646,
+    "cr_ratio": 0.701977938379612,
+    "byte_savings_percent": -42.45461934435113,
+    "outcome": "lower",
+    "common_metadata_bytes": 143,
+    "jointzip_payload_bytes": 5115,
+    "jointzip_artifact": "artifacts/jointzip/anomaly__544_SMAP_id_14_Sensor_tr_1978_1st_4450__zfp__strict.jcf",
+    "lossless_artifact": "artifacts/lossless/anomaly__544_SMAP_id_14_Sensor_tr_1978_1st_4450.jcf",
+    "jointzip_artifact_sha256": "01a715b8b5485a8df8c9c28a47e9635be3757f4cabb1eea6f9cde2ead0318c96",
+    "original_jointzip_sha256": "2cf7245b40f16b5a36a9cdd5c79edb4d6d6925c9e11ba60879beecd47356e171",
+    "jointzip_payload_sha256": "91526bfcdc076c13d6743092418857c7c59b3ab53cf92b474f00a6d0562d1a49",
+    "jointzip_original_decode_verified": true
+  },
+  "completed_utc": "2026-10-31T13:54:59.046209+00:00"
+}

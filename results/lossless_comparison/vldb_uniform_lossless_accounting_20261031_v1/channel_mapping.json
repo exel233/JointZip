@@ -1,0 +1,146 @@
+[
+  {
+    "task": "anomaly",
+    "sid": "140_MSL_id_1_Sensor_tr_530_1st_630",
+    "old_channel": "140_MSL_id_1_Sensor_tr_530_1st_630.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "141_MSL_id_2_Sensor_tr_500_1st_550",
+    "old_channel": "141_MSL_id_2_Sensor_tr_500_1st_550.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "143_MSL_id_4_Sensor_tr_980_1st_3550",
+    "old_channel": "143_MSL_id_4_Sensor_tr_980_1st_3550.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "144_MSL_id_5_Sensor_tr_1525_1st_4590",
+    "old_channel": "144_MSL_id_5_Sensor_tr_1525_1st_4590.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "145_MSL_id_6_Sensor_tr_530_1st_630",
+    "old_channel": "145_MSL_id_6_Sensor_tr_530_1st_630.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "147_MSL_id_8_Sensor_tr_590_1st_690",
+    "old_channel": "147_MSL_id_8_Sensor_tr_590_1st_690.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "148_MSL_id_9_Sensor_tr_883_1st_1238",
+    "old_channel": "148_MSL_id_9_Sensor_tr_883_1st_1238.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "531_SMAP_id_1_Sensor_tr_1811_1st_4510",
+    "old_channel": "531_SMAP_id_1_Sensor_tr_1811_1st_4510.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "532_SMAP_id_2_Sensor_tr_2075_1st_5550",
+    "old_channel": "532_SMAP_id_2_Sensor_tr_2075_1st_5550.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "533_SMAP_id_3_Sensor_tr_2052_1st_5300",
+    "old_channel": "533_SMAP_id_3_Sensor_tr_2052_1st_5300.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "534_SMAP_id_4_Sensor_tr_1968_1st_4370",
+    "old_channel": "534_SMAP_id_4_Sensor_tr_1968_1st_4370.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "536_SMAP_id_6_Sensor_tr_2160_1st_5600",
+    "old_channel": "536_SMAP_id_6_Sensor_tr_2160_1st_5600.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "537_SMAP_id_7_Sensor_tr_2077_1st_5394",
+    "old_channel": "537_SMAP_id_7_Sensor_tr_2077_1st_5394.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "538_SMAP_id_8_Sensor_tr_2007_1st_3650",
+    "old_channel": "538_SMAP_id_8_Sensor_tr_2007_1st_3650.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "539_SMAP_id_9_Sensor_tr_1857_1st_4270",
+    "old_channel": "539_SMAP_id_9_Sensor_tr_1857_1st_4270.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "540_SMAP_id_10_Sensor_tr_2051_1st_4575",
+    "old_channel": "540_SMAP_id_10_Sensor_tr_2051_1st_4575.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "541_SMAP_id_11_Sensor_tr_1832_1st_5300",
+    "old_channel": "541_SMAP_id_11_Sensor_tr_1832_1st_5300.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "542_SMAP_id_12_Sensor_tr_1908_1st_4690",
+    "old_channel": "542_SMAP_id_12_Sensor_tr_1908_1st_4690.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "544_SMAP_id_14_Sensor_tr_1978_1st_4450",
+    "old_channel": "544_SMAP_id_14_Sensor_tr_1978_1st_4450.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "545_SMAP_id_15_Sensor_tr_1173_1st_2750",
+    "old_channel": "545_SMAP_id_15_Sensor_tr_1173_1st_2750.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "546_SMAP_id_16_Sensor_tr_2117_1st_4770",
+    "old_channel": "546_SMAP_id_16_Sensor_tr_2117_1st_4770.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "547_SMAP_id_17_Sensor_tr_2133_1st_5400",
+    "old_channel": "547_SMAP_id_17_Sensor_tr_2133_1st_5400.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "548_SMAP_id_18_Sensor_tr_2094_1st_5600",
+    "old_channel": "548_SMAP_id_18_Sensor_tr_2094_1st_5600.csv",
+    "common_channel": "value"
+  },
+  {
+    "task": "anomaly",
+    "sid": "549_SMAP_id_19_Sensor_tr_1998_1st_2098",
+    "old_channel": "549_SMAP_id_19_Sensor_tr_1998_1st_2098.csv",
+    "common_channel": "value"
+  }
+]

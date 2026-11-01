@@ -1,97 +1,97 @@
 [
   {
     "file": "paper/data/backend_overview.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/backend_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/backend_overview.csv",
     "bytes": 1464,
     "sha256": "9f72fd08a15f0a573f4445252b025ff5744e139c85c730fefa52307dcbe8c076"
   },
   {
     "file": "paper/data/backend_timing_table.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/backend_timing_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/backend_timing_table.csv",
     "bytes": 897,
     "sha256": "408fcecdad5688ea7f3cfb291c6b505ed46750a708742ee7cfbc8ddb5a5daf1b"
   },
   {
     "file": "paper/data/downstream_gain_cells.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/downstream_gain_cells.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/downstream_gain_cells.csv",
     "bytes": 99817,
     "sha256": "fb41833f8182ec0cac90036eb689cb08c2acc4669f0722d02a42d19d4caeefbc"
   },
   {
     "file": "paper/data/downstream_large_table.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/downstream_large_table.csv",
-    "bytes": 46523,
-    "sha256": "1bb0fd28f1eb422d93f26e2ac54253f104a43ba5ccadfa02c846818e6e68eda6"
+    "source": "Overleaf source snapshot 2026-11-01/data/downstream_large_table.csv",
+    "bytes": 54594,
+    "sha256": "0b9bdd4796830b5ec69c44b98c7cf0170215e0e216ad94d14a619830c71334fb"
   },
   {
     "file": "paper/data/downstream_large_table.tex",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/downstream_large_table.tex",
-    "bytes": 8421,
-    "sha256": "f1604cb8af1e068667208e87597d4f0a42a09743156b12a626949ca227cb51a8"
+    "source": "Overleaf source snapshot 2026-11-01/data/downstream_large_table.tex",
+    "bytes": 9859,
+    "sha256": "87225d70e03d05bac3990b0ecbc05ebdbad4d0af50b6c2e803f3ead9b9f4b15b"
   },
   {
     "file": "paper/data/ablation_detail_tables.tex",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_detail_tables.tex",
-    "bytes": 27370,
-    "sha256": "84545656dbedef9a327179433040000973508063cc760ab719205a0d75c70d8e"
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_detail_tables.tex",
+    "bytes": 27495,
+    "sha256": "74b33cb77e61848238ad26b4c621224c68f4c57d815c8de0e43ef6236e6d6145"
   },
   {
     "file": "paper/data/ablation_classification_table.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_classification_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_classification_table.csv",
     "bytes": 1530,
     "sha256": "279d388664309fa1d66a3953cd50668a768a5344c3f3cbae2a4669c6d35bffc0"
   },
   {
     "file": "paper/data/ablation_constraint_pass.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_constraint_pass.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_constraint_pass.csv",
     "bytes": 3075,
     "sha256": "0c9ef91de4ba1137ed2d7cb8e0651a627be2e2d350921cc075d4a2a819de3927"
   },
   {
     "file": "paper/data/ablation_correction_cr_overview.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_correction_cr_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_correction_cr_overview.csv",
     "bytes": 1501,
     "sha256": "189a5b3fdcd32d258c7902abf3aacde9eb5abfabcc55857e9884920ca2a8ac98"
   },
   {
     "file": "paper/data/ablation_correction_table.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_correction_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_correction_table.csv",
     "bytes": 1000,
     "sha256": "b4ec17ddb5aa9e621fb9494720f3d22e860dacfaae2bb486ffb174f42a2a0122"
   },
   {
     "file": "paper/data/ablation_cr_overview.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_cr_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_cr_overview.csv",
     "bytes": 4992,
     "sha256": "803c08658768bcc7d0a1c1a33c96b81a14e26669eae49e100fa817acf1231532"
   },
   {
     "file": "paper/data/ablation_downstream_contrast_overview.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_downstream_contrast_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_downstream_contrast_overview.csv",
     "bytes": 19199,
     "sha256": "d8f945cf4570b5b7292b149d488716073cf4d225638a25b0c5d1f40475672cfc"
   },
   {
     "file": "paper/data/ablation_downstream_overview.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_downstream_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_downstream_overview.csv",
     "bytes": 4214,
     "sha256": "2621baa41166813d7eecd2d78ce1e82a34e171a54b425013f4816cbae6d37922"
   },
   {
     "file": "paper/data/ablation_forecast_table.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_forecast_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_forecast_table.csv",
     "bytes": 877,
     "sha256": "b9cfc5fc4a1b9820f60a2b65bbd5435f9fd45254c7df49705d319622e43ffd77"
   },
   {
     "file": "paper/data/ablation_mechanism_overview.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/ablation_mechanism_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_mechanism_overview.csv",
     "bytes": 6369,
     "sha256": "afa314680e70cfc0c8ba7faa54d5c7b2add3fcbedad9df85adc936a88be6eeaa"
   },
   {
     "file": "paper/data/correction_outcomes.csv",
-    "source": "papers/VLDB/2026_vldb_large_table_20261021/work/data/correction_outcomes.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/correction_outcomes.csv",
     "bytes": 1490,
     "sha256": "b4a5e736651cf697e996e7aa4ce493aa90e0873a05eb94ece3a39c46b57318e5"
   },
@@ -248,5 +248,215 @@
     "original_pdf_bytes": 403060,
     "source_basis": "papers/VLDB/2026_vldb_readability_20261020/delivery/JointZip_implementation_results_20261020.pdf",
     "transformation": "Presentation-only rebuild: named authors and Chalmers affiliations; pending publication DOI/pages and proceedings frontmatter omitted. Scientific body and included result table sources are byte-identical to the October 21 manuscript sources."
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/downstream.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/downstream.csv",
+    "bytes": 5027,
+    "sha256": "d35046e242090bfaf8221e04b8f5c172fd13109d12bb4866893f0af3fb5be7aa"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/contrasts.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/contrasts.csv",
+    "bytes": 2704,
+    "sha256": "144f9a2c09d957f46c01f4f37de008635ed5c94676379f86d518754347ba2fff"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/mechanism.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/mechanism.csv",
+    "bytes": 2704,
+    "sha256": "d1276cd059c585ebb229c4d81a06693481f50965ed8c560bd0fb2edf467c4b33"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/RESULTS.json",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/RESULTS.json",
+    "bytes": 33344,
+    "sha256": "9a93d29d830c7860a45decd5d217c3dd1b8c98dca045763ad0d5303cb8293706"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/COMPLETE.json",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/COMPLETE.json",
+    "bytes": 395,
+    "sha256": "85d21b8f016085d8f272bc18df28569f5cf6879d33c901d96256d08cf581f3c4"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/TEST_BINDING.json",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/TEST_BINDING.json",
+    "bytes": 356,
+    "sha256": "f97f171d40c482477d1def65e1ba717a753110965fd171dcf6660a81396beadc"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/TRAIN_PREPARATION.json",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/TRAIN_PREPARATION.json",
+    "bytes": 3131,
+    "sha256": "e91b685416f2a233344d8eae4b70f3661789508a1af30faa3da202584127bcad"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/audit/FINAL_RESULT_AUDIT.json",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/audit/FINAL_RESULT_AUDIT.json",
+    "bytes": 39690,
+    "sha256": "f8fe0c074099f83e9e797f00ffde7c386b675edbb85d123d557514c7a7562101"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ER_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ER_windows.csv",
+    "bytes": 136438,
+    "sha256": "c3f60ecd426ff180bcda56f5904c033788ae4140d04d652d932bc0394463b22a"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ERA_tau001_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ERA_tau001_windows.csv",
+    "bytes": 136881,
+    "sha256": "8390b992b1fe8c014e64eec81a386c703e07097adacbb52e49c529166c0a3572"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ERA_tau005_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_sz3_ERA_tau005_windows.csv",
+    "bytes": 136437,
+    "sha256": "35b23344b63364ce9e999ec640e10218a53fb178b86d26f5318533ebca8533b4"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ER_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ER_windows.csv",
+    "bytes": 135997,
+    "sha256": "af9cbbb28dc68559242dd6fa6981f453ff6769d991e25849c350018ea1c709d6"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ERA_tau001_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ERA_tau001_windows.csv",
+    "bytes": 137366,
+    "sha256": "1df1aa2d36fa779f7b6f5b40c1d7e983c593e92edde12043b0b3bd8ec1848662"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ERA_tau005_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordA_zfp_ERA_tau005_windows.csv",
+    "bytes": 135997,
+    "sha256": "af9cbbb28dc68559242dd6fa6981f453ff6769d991e25849c350018ea1c709d6"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ER_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ER_windows.csv",
+    "bytes": 83713,
+    "sha256": "1ffb556cc2b8244207f91e4f28626e74891a63cab14af7f868f15e6513d2433f"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ERA_tau001_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ERA_tau001_windows.csv",
+    "bytes": 83998,
+    "sha256": "b5cdcd2918c369b180b57b91a1bbfd6636809e26f108791000861777ab7c96e5"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ERA_tau005_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_sz3_ERA_tau005_windows.csv",
+    "bytes": 83713,
+    "sha256": "1ffb556cc2b8244207f91e4f28626e74891a63cab14af7f868f15e6513d2433f"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ER_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ER_windows.csv",
+    "bytes": 83425,
+    "sha256": "e6a9812a28ffa49c3deb36681e87e00365ef56e9d232ce9638e4ccdcfb5527c4"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ERA_tau001_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ERA_tau001_windows.csv",
+    "bytes": 84353,
+    "sha256": "c10cd79b8c82220d1275bd1f2ab4147324acf4df69472071b46f3fd4c0bd9305"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ERA_tau005_windows.csv",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/artifacts/FordB_zfp_ERA_tau005_windows.csv",
+    "bytes": 83425,
+    "sha256": "e6a9812a28ffa49c3deb36681e87e00365ef56e9d232ce9638e4ccdcfb5527c4"
+  },
+  {
+    "file": "results/acf_case/vldb_acf_forda_fordb_20261028_v1/PROTOCOL.public.json",
+    "source": "experiments/results/vldb_acf_forda_fordb_20261028_v1/PROTOCOL.json",
+    "bytes": 19089,
+    "sha256": "8b7616d1f09a25de23e59249801c30416063a44b1bdb9153cee7bc7d98f6e2b3",
+    "source_bytes": 19364,
+    "source_sha256": "db2611a509cdfe6a4dee920f1b46f4f5c08386180f65fe48ef7be4574d50091c",
+    "transformation": "Only private host path prefixes in JSON strings and keys are replaced by {experiment-storage}/ or {project-root}/. Scientific parameters, numeric values, versions, source identities, and all hashes are unchanged. COMPLETE.json and the saved audit bind the original protocol hash, recorded here as source_sha256."
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/conditions.csv",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/conditions.csv",
+    "bytes": 1387850,
+    "sha256": "2c5f30f3ce5dee309480f49c8a60be52fe622e2281aaf83e82ddd715da240ce3"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/macros.csv",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/macros.csv",
+    "bytes": 1912,
+    "sha256": "6748f94635c6b3012b47279b1dbd535ca42cd70364a199f800e098881431c1bc"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/settings.csv",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/settings.csv",
+    "bytes": 3785,
+    "sha256": "464f6c2e43c67a6ec2b2c189981a11603fcabe1da477c3af9f5e1b79efefe4c4"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/sources.csv",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/sources.csv",
+    "bytes": 7268,
+    "sha256": "65d5d7e39aada724f49e6d52563a735e56d92543cf4f87e3090c02af3830e2e5"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/SUMMARY.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/SUMMARY.json",
+    "bytes": 1976,
+    "sha256": "299f3540d31afb678b8cfc6c9fb73c91411ebf115a19db1e068dc4d3e256a20a"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/COMPLETE.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/COMPLETE.json",
+    "bytes": 2032,
+    "sha256": "884c3add1558fdb1c82ccc2217bf96a5d6611b6b3473204e466572eaf5124ad5"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/PROTOCOL.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/PROTOCOL.json",
+    "bytes": 2070,
+    "sha256": "d6849734caf5bf7c421e3a9f03c4869c3936fa4b48b6fff1352c9d2bf58e261e"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/INDEPENDENT_REVIEW.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/INDEPENDENT_REVIEW.json",
+    "bytes": 6198,
+    "sha256": "976f23a2f2b70f5116d3efec511100b44f8faed462d1dfa366e6164bb1acd5e7"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/source_bindings.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/source_bindings.json",
+    "bytes": 112065,
+    "sha256": "6416bd517f23293bb444e71f2aa57d4c0550618f15953cf09c199f57c6059c3d"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/lossless_files.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/lossless_files.json",
+    "bytes": 154701,
+    "sha256": "e93804a1118fcdb7fc111241970878088246348e6f25c89f4d86fbb49c7c5785"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/channel_mapping.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/channel_mapping.json",
+    "bytes": 4403,
+    "sha256": "6ef0765e68be9dd7c4c6743aed602d485f622ee1fe3933024e6614171d239c53"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/REPORT_MANIFEST.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/REPORT_MANIFEST.json",
+    "bytes": 1487,
+    "sha256": "1cbbdef5f6757df6d74336ad44e44d38ea95e2c51fdadb82b799988005e6385a"
+  },
+  {
+    "file": "results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/ROSTER_IDENTITY_REVIEW.public.json",
+    "source": "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/ROSTER_IDENTITY_REVIEW.json",
+    "bytes": 2098,
+    "sha256": "f8e33aa52cad4f6648e8b02718776282a9e001c1f55f1ea97a2d76e5f2764ff4",
+    "source_bytes": 2152,
+    "source_sha256": "7927f794b1037ab46a915288721366d3873a100404868901cd38c74f21c593e2",
+    "transformation": "Only evidence_path_base replaces a private absolute project path with a project-relative description. All other fields and numeric results are unchanged."
   }
 ]

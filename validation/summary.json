@@ -1,13 +1,42 @@
 {
-  "snapshot_date": "2026-10-25",
+  "snapshot_date": "2026-11-01",
+  "tag": "vldb2027-submission-20261101",
   "table_reproduction": {
-    "passed": true,
-    "output_bytes_equal_reference": true,
-    "source_model_setting_cells": 1008,
-    "selected_downstream_pairs": 16884,
-    "selected_compression_pairs": 3024,
-    "backend_macro_values_checked": 60,
-    "max_macro_absolute_error": 4.440892098500626e-14
+    "displayed_data_rows": 51,
+    "displayed_paired_cells": 306,
+    "atlas_cells_checked": 1008,
+    "atlas_max_absolute_error": 0.0,
+    "raw_max_spread_across_backend_and_setting": 0.0,
+    "display_quality_outcomes": {
+      "jointzip": 164,
+      "native": 42,
+      "tie": 10
+    },
+    "display_mean_outcomes": {
+      "jointzip": 42,
+      "native": 6
+    },
+    "paper_comparison": {
+      "passed": true,
+      "csv_sha256": "0b9bdd4796830b5ec69c44b98c7cf0170215e0e216ad94d14a619830c71334fb",
+      "tex_sha256": "87225d70e03d05bac3990b0ecbc05ebdbad4d0af50b6c2e803f3ead9b9f4b15b",
+      "csv_rows_checked": 306,
+      "numeric_values_checked": 1392,
+      "mean_numeric_values_checked": 144,
+      "max_absolute_error": 0.0,
+      "display_fields_exact": true,
+      "tex_exact": true
+    },
+    "outputs": {
+      "downstream_large_table.tex": {
+        "sha256": "87225d70e03d05bac3990b0ecbc05ebdbad4d0af50b6c2e803f3ead9b9f4b15b",
+        "bytes": 9859
+      },
+      "downstream_large_table.csv": {
+        "sha256": "0b9bdd4796830b5ec69c44b98c7cf0170215e0e216ad94d14a619830c71334fb",
+        "bytes": 54594
+      }
+    }
   },
   "offline_codec_test": {
     "cached_encode_bytes_equal": true,
@@ -24,8 +53,29 @@
     "unrepaired_cache_only": true,
     "zfp_effective_key": true
   },
-  "reference_sources_verified": 44,
-  "result_files_verified": 41,
+  "supplemental_numeric_checks": {
+    "passed": true,
+    "checks": 109951,
+    "numeric_comparisons": 13034,
+    "max_absolute_aggregation_difference": 1.1368683772161603e-13
+  },
+  "figure_reproduction": {
+    "displayed_bars": 96,
+    "omitted_bars": 0,
+    "paper_aggregate_values_exact": true
+  },
+  "source_python_syntax_files": 115,
+  "offline_environment": {
+    "python": "Python 3.12.14",
+    "numpy": "1.26.4",
+    "zstandard": "0.25.0"
+  },
+  "figure_environment": {
+    "platform": "Linux (WSL Ubuntu)",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "matplotlib": "3.9.2"
+  },
   "native_backends_rebuilt_for_this_snapshot": false,
   "full_experiments_rerun_for_this_snapshot": false
 }

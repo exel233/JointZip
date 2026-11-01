@@ -1,0 +1,18 @@
+{
+  "FordA": {
+    "count": 1320,
+    "npz_sha256": "ab6bb499d8d4cd122dded036d86def15b5ec2176eb9f5cc5fe9a826bf8339ddc",
+    "labels": {
+      "-1": 681,
+      "1": 639
+    }
+  },
+  "FordB": {
+    "count": 810,
+    "npz_sha256": "bc1e9f045d00ccca038fb3c1d14d9eea466df3f4e8998642bc59f748da2e75f6",
+    "labels": {
+      "-1": 401,
+      "1": 409
+    }
+  }
+}

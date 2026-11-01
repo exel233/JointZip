@@ -1,0 +1,490 @@
+{
+  "schema": "jointzip.acf-ford-real.v1",
+  "created_utc": "2026-10-28T02:53:33.722578+00:00",
+  "hypotheses": "Literature-motivated low-frequency/autocorrelation class structure; added A can preserve useful dynamics beyond E/R, without assuming every consumer improves.",
+  "literature": {
+    "catch22": "https://doi.org/10.1007/s10618-019-00647-x",
+    "dataset": "https://www.timeseriesclassification.com/"
+  },
+  "datasets": {
+    "FordA": {
+      "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/FordA.zip",
+      "archive_sha256": "4d78a72e5165e8da40c51115a8219c9d01978aafac6334ed8dfabd29da359ffb",
+      "train_text_sha256": "f6e183889d47f05a836e2e236163840ad74cb2e07ab03bf4239d033b69c11d0f",
+      "shape": [
+        3601,
+        500
+      ],
+      "class_counts": {
+        "-1": 1846,
+        "1": 1755
+      },
+      "global_train_mean": -8.154279580792714e-12,
+      "global_train_std": 0.9989994994631246,
+      "row_mean_abs_max": 9.368639439344406e-09,
+      "row_sample_std_minmax": [
+        0.9999999871565923,
+        1.0000000116498067
+      ],
+      "first_minimum_quantiles": {
+        "0": 6.0,
+        "0.5": 12.0,
+        "0.9": 13.0,
+        "0.95": 14.0,
+        "0.99": 14.0,
+        "1": 18.0
+      },
+      "coverage": {
+        "16": 0.9958344904193279,
+        "32": 1.0,
+        "64": 1.0,
+        "128": 1.0
+      },
+      "catch22_first_minimum_first8": [
+        14.0,
+        13.0,
+        16.0,
+        12.0,
+        7.0,
+        10.0,
+        10.0,
+        11.0
+      ],
+      "traditional_first_minimum_first8": [
+        14,
+        13,
+        16,
+        12,
+        7,
+        10,
+        10,
+        11
+      ],
+      "models": "models/FordA.pkl",
+      "models_sha256": "591d48f3eaf0113719a36e80a8c9b84c19c3bea83e6a24eac38fe4894528600a",
+      "train_npz_sha256": "9c6b0e717050da08b48b908371a2d205bb712df77781537aad95c93e390e1d95",
+      "catch22_feature_names": [
+        "CO_Embed2_Dist_tau_d_expfit_meandiff",
+        "CO_FirstMin_ac",
+        "CO_HistogramAMI_even_2_5",
+        "CO_f1ecac",
+        "CO_trev_1_num",
+        "DN_HistogramMode_10",
+        "DN_HistogramMode_5",
+        "DN_OutlierInclude_n_001_mdrmd",
+        "DN_OutlierInclude_p_001_mdrmd",
+        "FC_LocalSimple_mean1_tauresrat",
+        "FC_LocalSimple_mean3_stderr",
+        "IN_AutoMutualInfoStats_40_gaussian_fmmi",
+        "MD_hrv_classic_pnn40",
+        "PD_PeriodicityWang_th0_01",
+        "SB_BinaryStats_diff_longstretch0",
+        "SB_BinaryStats_mean_longstretch1",
+        "SB_MotifThree_quantile_hh",
+        "SB_TransitionMatrix_3ac_sumdiagcov",
+        "SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1",
+        "SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1",
+        "SP_Summaries_welch_rect_area_5_1",
+        "SP_Summaries_welch_rect_centroid"
+      ],
+      "training_seconds": 8.036826128999998,
+      "fit_info": {
+        "catch22": {
+          "n_features": 22,
+          "nonfinite_features": 0,
+          "iterations": [
+            49
+          ]
+        },
+        "spectrum32": {
+          "n_features": 32,
+          "nonfinite_features": 0,
+          "iterations": [
+            62
+          ]
+        },
+        "first_minimum": {
+          "n_features": 1,
+          "nonfinite_features": 0,
+          "iterations": [
+            2
+          ]
+        }
+      }
+    },
+    "FordB": {
+      "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/FordB.zip",
+      "archive_sha256": "a73810d108de24bae741de3b67a5f73286f9913da47d3dfbf73ce55b9386fff8",
+      "train_text_sha256": "22a1df6e737ca799182770a9325d6717bc6c8edb2f78045170b37e1b023abebd",
+      "shape": [
+        3636,
+        500
+      ],
+      "class_counts": {
+        "-1": 1860,
+        "1": 1776
+      },
+      "global_train_mean": -1.7434763046794384e-11,
+      "global_train_std": 0.9989994995394184,
+      "row_mean_abs_max": 5.169538781046867e-09,
+      "row_sample_std_minmax": [
+        0.9999999913424951,
+        1.000000008338006
+      ],
+      "first_minimum_quantiles": {
+        "0": 6.0,
+        "0.5": 10.0,
+        "0.9": 12.0,
+        "0.95": 13.0,
+        "0.99": 14.0,
+        "1": 16.0
+      },
+      "coverage": {
+        "16": 0.9991749174917491,
+        "32": 1.0,
+        "64": 1.0,
+        "128": 1.0
+      },
+      "catch22_first_minimum_first8": [
+        10.0,
+        7.0,
+        10.0,
+        11.0,
+        12.0,
+        11.0,
+        9.0,
+        11.0
+      ],
+      "traditional_first_minimum_first8": [
+        10,
+        7,
+        10,
+        11,
+        12,
+        11,
+        9,
+        11
+      ],
+      "models": "models/FordB.pkl",
+      "models_sha256": "8010c0eb18a0b5e27f7b2bce4f4053f99e559308fa7f9a003137fc0fcd7f3260",
+      "train_npz_sha256": "30a59300d207b164e24f57fd8d002c7528b1d7a1e0955482558d2d3efe4d749d",
+      "catch22_feature_names": [
+        "CO_Embed2_Dist_tau_d_expfit_meandiff",
+        "CO_FirstMin_ac",
+        "CO_HistogramAMI_even_2_5",
+        "CO_f1ecac",
+        "CO_trev_1_num",
+        "DN_HistogramMode_10",
+        "DN_HistogramMode_5",
+        "DN_OutlierInclude_n_001_mdrmd",
+        "DN_OutlierInclude_p_001_mdrmd",
+        "FC_LocalSimple_mean1_tauresrat",
+        "FC_LocalSimple_mean3_stderr",
+        "IN_AutoMutualInfoStats_40_gaussian_fmmi",
+        "MD_hrv_classic_pnn40",
+        "PD_PeriodicityWang_th0_01",
+        "SB_BinaryStats_diff_longstretch0",
+        "SB_BinaryStats_mean_longstretch1",
+        "SB_MotifThree_quantile_hh",
+        "SB_TransitionMatrix_3ac_sumdiagcov",
+        "SC_FluctAnal_2_dfa_50_1_2_logi_prop_r1",
+        "SC_FluctAnal_2_rsrangefit_50_1_logi_prop_r1",
+        "SP_Summaries_welch_rect_area_5_1",
+        "SP_Summaries_welch_rect_centroid"
+      ],
+      "training_seconds": 7.6630343479999965,
+      "fit_info": {
+        "catch22": {
+          "n_features": 22,
+          "nonfinite_features": 0,
+          "iterations": [
+            46
+          ]
+        },
+        "spectrum32": {
+          "n_features": 32,
+          "nonfinite_features": 0,
+          "iterations": [
+            60
+          ]
+        },
+        "first_minimum": {
+          "n_features": 1,
+          "nonfinite_features": 0,
+          "iterations": [
+            2
+          ]
+        }
+      }
+    }
+  },
+  "backends": [
+    "sz3",
+    "zfp"
+  ],
+  "arms": {
+    "ER": -1.0,
+    "ERA_tau005": 0.05,
+    "ERA_tau001": 0.01
+  },
+  "epsilon": 1.0,
+  "rho": 0.99,
+  "max_lag": 16,
+  "lag_selection": {
+    "created_utc": "2026-10-28T02:38:17.397556+00:00",
+    "split_inspected": "TRAIN only",
+    "datasets": {
+      "FordA": {
+        "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/FordA.zip",
+        "archive_sha256": "4d78a72e5165e8da40c51115a8219c9d01978aafac6334ed8dfabd29da359ffb",
+        "train_text_sha256": "f6e183889d47f05a836e2e236163840ad74cb2e07ab03bf4239d033b69c11d0f",
+        "shape": [
+          3601,
+          500
+        ],
+        "class_counts": {
+          "-1": 1846,
+          "1": 1755
+        },
+        "global_train_mean": -8.154279580792714e-12,
+        "global_train_std": 0.9989994994631246,
+        "row_mean_abs_max": 9.368639439344406e-09,
+        "row_sample_std_minmax": [
+          0.9999999871565923,
+          1.0000000116498067
+        ],
+        "first_minimum_quantiles": {
+          "0": 6.0,
+          "0.5": 12.0,
+          "0.9": 13.0,
+          "0.95": 14.0,
+          "0.99": 14.0,
+          "1": 18.0
+        },
+        "coverage": {
+          "16": 0.9958344904193279,
+          "32": 1.0,
+          "64": 1.0,
+          "128": 1.0
+        },
+        "catch22_first_minimum_first8": [
+          14.0,
+          13.0,
+          16.0,
+          12.0,
+          7.0,
+          10.0,
+          10.0,
+          11.0
+        ],
+        "traditional_first_minimum_first8": [
+          14,
+          13,
+          16,
+          12,
+          7,
+          10,
+          10,
+          11
+        ]
+      },
+      "FordB": {
+        "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/FordB.zip",
+        "archive_sha256": "a73810d108de24bae741de3b67a5f73286f9913da47d3dfbf73ce55b9386fff8",
+        "train_text_sha256": "22a1df6e737ca799182770a9325d6717bc6c8edb2f78045170b37e1b023abebd",
+        "shape": [
+          3636,
+          500
+        ],
+        "class_counts": {
+          "-1": 1860,
+          "1": 1776
+        },
+        "global_train_mean": -1.7434763046794384e-11,
+        "global_train_std": 0.9989994995394184,
+        "row_mean_abs_max": 5.169538781046867e-09,
+        "row_sample_std_minmax": [
+          0.9999999913424951,
+          1.000000008338006
+        ],
+        "first_minimum_quantiles": {
+          "0": 6.0,
+          "0.5": 10.0,
+          "0.9": 12.0,
+          "0.95": 13.0,
+          "0.99": 14.0,
+          "1": 16.0
+        },
+        "coverage": {
+          "16": 0.9991749174917491,
+          "32": 1.0,
+          "64": 1.0,
+          "128": 1.0
+        },
+        "catch22_first_minimum_first8": [
+          10.0,
+          7.0,
+          10.0,
+          11.0,
+          12.0,
+          11.0,
+          9.0,
+          11.0
+        ],
+        "traditional_first_minimum_first8": [
+          10,
+          7,
+          10,
+          11,
+          12,
+          11,
+          9,
+          11
+        ]
+      }
+    },
+    "lag_rule": "Smallest common L in 16,32,64,128 covering first minimum plus right neighbor (k+1<=L) for >=99% in each TRAIN set; if none use128 and disclose coverage.",
+    "traditional_acf": "global-mean centered, linear lagged dot product divided by lag0 (biased full-series ACF); first strict local minimum; absent=length. Distinct from JointZip slice-Pearson contract.",
+    "versions": {
+      "numpy": "1.26.4",
+      "scipy": "1.14.1",
+      "sklearn": "1.5.1",
+      "pycatch22": "0.4.5"
+    },
+    "selected_max_lag": 16
+  },
+  "input": "Official existing per-record z-scored sequences cast to float32, no additional fitted normalization or padding; one record=one 500-point window.",
+  "scope": "All official TEST records: FordA1320/FordB810, no case filtering or retuning. TRAIN only fits consumers and selects lag coverage.",
+  "consumers": {
+    "primary": "catch22 all22 sorted by name + TRAIN median imputation + StandardScaler + LogisticRegression(C=1,class_weight=balanced,solver=lbfgs,max_iter=5000,random_state=20261028)",
+    "complementary": "32 equal-width frequency bands of relative one-sided boxcar periodogram energy excluding DC; same raw-TRAIN fitted pipeline",
+    "mechanism_only": "CO_FirstMin_ac alone with same pipeline; traditional global-mean ACF definition differs from JointZip slice-Pearson contract"
+  },
+  "metrics": [
+    "balanced_accuracy",
+    "accuracy",
+    "AUROC",
+    "prediction_flip_vs_raw",
+    "label_improved_declined_vs_ER",
+    "full_JZF1_CR",
+    "actual_E_R_slice_ACF",
+    "traditional_ACF_gap",
+    "first_minimum_error",
+    "lossless",
+    "repair_values_bytes"
+  ],
+  "codec": "Unchanged framework_ablation_20261017 codec; original formula22/12/512; original simple legacy greedy correction formats0-6. Disable A with tau=-1 for ER.",
+  "archive": "One complete JZF1 file per dataset/backend/arm, formed losslessly from completed batch records; full metadata billed. Batch files are checkpoints, not reported denominator.",
+  "cache": "Exact native unrepaired candidate cache shared across arms; no encoding speed claims.",
+  "test_feedback": "No TEST performance is used to select datasets, parameters, lag, consumer, or cases.",
+  "chunk_size": 16,
+  "versions": {
+    "python": "3.10.12",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "sklearn": "1.5.1",
+    "pycatch22": "0.4.5"
+  },
+  "native": {
+    "sz3": {
+      "version": "3.3.2",
+      "upstream_commit": "0ebe6fa26b0aa2e274d13b78df81a81e2db1b268",
+      "upstream_url": "https://github.com/szcompressor/SZ3.git",
+      "binary": "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/modern-codecs/bin/sz3",
+      "binary_sha256": "1ac37531dff6f1336b1df604947f1b383a96c23406700fa905ab297817b976ca",
+      "cmake_cache_sha256": "c9cd5774fd63a22107e1a13bf4619a3bd3b827a0d12bf730758acd8a81cb889c",
+      "ldd": "linux-vdso.so.1 (0x00007e8a9d135000)\n\tlibzstd.so => {project-root}/tmp/modern-codecs/build/SZ3/tools/zstd/libzstd.so (0x00007e8a9cf9d000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007e8a9cc00000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007e8a9ceb1000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007e8a9ce91000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007e8a9c800000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007e8a9d137000)",
+      "implementation": "official SZ3 API with allocating overload; local thin CLI",
+      "wrapper_sha256": "c29472204d60186e4514393c2194011c013da6bd2865797b7da0163cf424739b",
+      "dependencies": [
+        {
+          "name": "zstd",
+          "version": "1.4.5",
+          "relative_path": "build/SZ3/tools/zstd/libzstd.so",
+          "binary_sha256": "eac285216fccf69a63f024b35ec8acb22c24fe3f0093a59de76c0dc37a141583",
+          "source_header_sha256": "1d825a963ade4385ff11cb07998e354883502ecc4d80726af6dc6db52e558692"
+        }
+      ],
+      "threads": 1,
+      "build_configuration": "Release; serial; ZFP static; SZ3 bundled shared Zstd 1.4.5; no GSL",
+      "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "cmake": "cmake version 3.31.10",
+      "build_script_sha256": "30c85cf94fe91373e7c435c00c77f6f5057cb6279d099928b37c7ba1cddcdf95",
+      "adapter_sha256": "323ed55e64df06392222ca050402f1fb629a4eaf1a3ec10d1e2e241ff6409178",
+      "process_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "LC_ALL": "C"
+      },
+      "native_shape": "one 1D T-vector per window/channel",
+      "contract": "pointwise_absolute_only",
+      "dtype": "<f4",
+      "frame": "QMC1/v1"
+    },
+    "zfp": {
+      "version": "1.0.1",
+      "upstream_commit": "f40868a6a1c190c802e7d8b5987064f044bf7812",
+      "upstream_url": "https://github.com/LLNL/zfp.git",
+      "binary": "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/modern-codecs/bin/zfp",
+      "binary_sha256": "8c48c9f2520389721c4abdcc4041874676bac6db7997bece167a9657a81b7194",
+      "cmake_cache_sha256": "7e783ced67b8ef98397b0e8a167d28f664fa788a23d21c12fff1e6927131173e",
+      "ldd": "linux-vdso.so.1 (0x000078e445cfd000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000078e445bab000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000078e445800000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000078e445cff000)",
+      "threads": 1,
+      "build_configuration": "Release; serial; ZFP static; SZ3 bundled shared Zstd 1.4.5; no GSL",
+      "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "cmake": "cmake version 3.31.10",
+      "build_script_sha256": "30c85cf94fe91373e7c435c00c77f6f5057cb6279d099928b37c7ba1cddcdf95",
+      "adapter_sha256": "323ed55e64df06392222ca050402f1fb629a4eaf1a3ec10d1e2e241ff6409178",
+      "process_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "LC_ALL": "C"
+      },
+      "native_shape": "one 1D T-vector per window/channel",
+      "contract": "pointwise_absolute_only",
+      "dtype": "<f4",
+      "frame": "QMC1/v1"
+    }
+  },
+  "dependency_sha256": {
+    "deps/catch22_C.cpython-310-x86_64-linux-gnu.so": "a158d8cb4179df9909d6123a332c75568e7ebd0a6f64c63580451ef7d91e2692",
+    "deps/pycatch22/__init__.py": "601f38a2c17fba1668641d4807fa929836f726aba673ae8b371fe413f67b453e",
+    "deps/pycatch22/catch22.py": "b47dd91427862b9e0598e60252f1c2b431e63c912fd99788f8a23db9daabf509"
+  },
+  "runtime_sha256": {
+    "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/ENVIRONMENT.json": "76f5f8e492872ddba1e97f352ca986754d1d3f4a77386650eec88ec13c51e1a9",
+    "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/anchors": "d37bb7222c01abdbc8f5512d968aaf1d866684e23b4b2141b42c4ea18a8544a1",
+    "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/qpet_correlation_batch": "3fe1f1e115680965f6cb6b3017f8b32d2dcc7d920039d5d34fc9aa9d2606226e",
+    "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/manifest.json": "641fc8fc566221cfd6c83e964d14bd46ee0ec3d3f0a7ab253c2319471d3881ec",
+    "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/modern-codecs/bin/sz3": "1ac37531dff6f1336b1df604947f1b383a96c23406700fa905ab297817b976ca",
+    "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/modern-codecs/bin/zfp": "8c48c9f2520389721c4abdcc4041874676bac6db7997bece167a9657a81b7194"
+  },
+  "runtime_environment": {
+    "JOINTZIP_PILOT_NATIVE_LIBS": "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/lib",
+    "JOINTZIP_PILOT_REPAIR": "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/qpet_correlation_batch",
+    "JOINTZIP_PILOT_ANCHORS": "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/anchors",
+    "JOINTZIP_SZ2016_BINARY": "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/sz2016_batch",
+    "JOINTZIP_SZ2016_CONFIG": "{experiment-storage}/vldb_framework_ablation_20261017_v1/runtime/sz2016.config",
+    "MODERN_CODECS_PREFIX": "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/modern-codecs",
+    "JOINTZIP_FULL_BRIDGE": "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/fixed_backend",
+    "JOINTZIP_FULL_BRIDGE_MANIFEST": "{experiment-storage}/vldb_framework_full_20261015_v1/runtime/manifest.json",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "producer_sha256": {
+    "experiments/vldb/acf_forda_fordb_20261028/__init__.py": "ee037c4cd7eb4990734099ddad9633e8cc9fcaeb9f07193704f99185d734b79a",
+    "experiments/vldb/acf_forda_fordb_20261028/common.py": "b91936361a8866629e414c794a408814cf310710b41bb5ec6fe178f3bb8465e1",
+    "experiments/vldb/acf_forda_fordb_20261028/pipeline.py": "afaa15c8427d43be1b7ff8aeb2457bb28005e55e352f0edcf414108f99e33966",
+    "experiments/vldb/acf_forda_fordb_20261028/prepare.py": "8f0743d0a0498369919f331c3d69d0e7cb0c8fa8df95f12b648647eec8f2d14f",
+    "experiments/vldb/acf_forda_fordb_20261028/report.py": "bc79663218122bba3295c0dcc920ad7389872a79b94a2563964f11c2309ba821",
+    "experiments/vldb/acf_forda_fordb_20261028/smoke.py": "4ba00efbf92fb3b79b6e5f94867ef73368fb0972c932f9767b88118da52ce2ad",
+    "experiments/vldb/acf_forda_fordb_20261028/validate_train.py": "809c1eb6a36ba39bb8cfcfd56af268ae79986f4f78d60fecf77f340e68e76322",
+    "experiments/vldb/framework_ablation_20261017/codec.py": "05be1d30c5d035187e792c328caea1f70edc81722b773def6e098f72719186a2",
+    "experiments/vldb/framework_ablation_20261017/container.py": "7bd0639918486a37013524af62bebf2b919c8339c6eb975584784c5e5429dcc6",
+    "experiments/vldb/framework_ablation_20261017/native_cache.py": "a391d3153c66f856b07605df3ac425aef0633e6dfb50c1ca06b07b6ceecbafc0",
+    "experiments/vldb/main_benchmark/modern_codecs.py": "323ed55e64df06392222ca050402f1fb629a4eaf1a3ec10d1e2e241ff6409178"
+  }
+}

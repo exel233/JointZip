@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-31T14:00:18.204709+00:00",
+  "python": "3.12.14",
+  "code_sha256": {
+    "experiments\\vldb\\uniform_lossless_accounting_20261031\\common_stream.py": "4d35800d1a8d2de7b4976e7b88279a1b29046aa42ac9d4966be36a3c2eeda83d",
+    "experiments\\vldb\\uniform_lossless_accounting_20261031\\compare.py": "c8ba2f76534edaba47902838f9d433d558b72beb074769450924514ac8ca2d99",
+    "experiments\\vldb\\uniform_lossless_accounting_20261031\\report.py": "1e5154247b97c1c1cde6b7f08fb796a5d0bcf9d4571563b917c68994f28f007a"
+  },
+  "result_sha256": {
+    "PROTOCOL.json": "d6849734caf5bf7c421e3a9f03c4869c3936fa4b48b6fff1352c9d2bf58e261e",
+    "conditions.csv": "2c5f30f3ce5dee309480f49c8a60be52fe622e2281aaf83e82ddd715da240ce3",
+    "macros.csv": "6748f94635c6b3012b47279b1dbd535ca42cd70364a199f800e098881431c1bc",
+    "settings.csv": "464f6c2e43c67a6ec2b2c189981a11603fcabe1da477c3af9f5e1b79efefe4c4",
+    "sources.csv": "65d5d7e39aada724f49e6d52563a735e56d92543cf4f87e3090c02af3830e2e5",
+    "SUMMARY.json": "299f3540d31afb678b8cfc6c9fb73c91411ebf115a19db1e068dc4d3e256a20a",
+    "COMPLETE.json": "884c3add1558fdb1c82ccc2217bf96a5d6611b6b3473204e466572eaf5124ad5",
+    "INDEPENDENT_REVIEW.json": "976f23a2f2b70f5116d3efec511100b44f8faed462d1dfa366e6164bb1acd5e7",
+    "ROSTER_IDENTITY_REVIEW.json": "7927f794b1037ab46a915288721366d3873a100404868901cd38c74f21c593e2",
+    "REPORT_ZH.md": "c7d42d658b8025556fe0328b3dfee31f30709b62d187f7e0d35cd0f778f5df26"
+  }
+}

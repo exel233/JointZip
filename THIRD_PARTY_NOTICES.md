@@ -41,3 +41,28 @@ The Python offline test depends on NumPy and python-zstandard at the versions in
 use Zstd, GSL, GMP, OpenMP, CMake, Ninja and the system toolchain. The SZ3 recipe
 uses the bundled Zstd 1.4.5 release selected by its upstream CMake configuration.
 Each installed or fetched dependency retains its own notices and license.
+
+## Downstream evaluation sources and weights
+
+The source snapshots now also include local dataset preparation and consumer
+adapters. These depend on the following upstream implementations or resources,
+which are fetched separately. Their publications and repository notices remain
+the relevant attribution and licensing sources.
+
+| Resource | Upstream | Use |
+| --- | --- | --- |
+| EvalImpLSTS | https://github.com/cmcuza/EvalImpLSTS | Forecasting data and DLinear evaluation reference |
+| PatchTST | https://github.com/yuqinie98/PatchTST | Forecasting model implementation |
+| Time-series ResNet reference | https://github.com/hfawaz/dl-4-tsc | Reference architecture for the local PyTorch implementation |
+| TSB-AD | https://github.com/TheDatumOrg/TSB-AD | NASA dataset collection and anomaly evaluation |
+| catch22 / pycatch22 | https://github.com/DynamicsAndNeuralSystems/catch22 | FordA/FordB feature extraction |
+| Chronos | https://github.com/amazon-science/chronos-forecasting | Frozen Chronos-2 and Chronos-Bolt models |
+| TimesFM | https://github.com/google-research/timesfm | Frozen TimesFM 3 forecasting model |
+
+Exact data/model identifiers and pinned source revisions are documented in
+[docs/DATASETS.md](docs/DATASETS.md). The saved model metadata identifies
+Chronos-2 and Chronos-Bolt weights as Apache-2.0 and the TimesFM 3 weights under
+`timesfm-non-commercial-license-v1.0`. A model repository's code licence is not
+automatically a licence for its weights or training data. Obtain these materials
+under their applicable provider terms. No pretrained weights or raw benchmark
+datasets are redistributed here.

@@ -1,0 +1,170 @@
+[
+  {
+    "file": "paper/data/ablation_classification_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_classification_table.csv",
+    "bytes": 1530,
+    "sha256": "279d388664309fa1d66a3953cd50668a768a5344c3f3cbae2a4669c6d35bffc0"
+  },
+  {
+    "file": "paper/data/ablation_constraint_pass.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_constraint_pass.csv",
+    "bytes": 3075,
+    "sha256": "0c9ef91de4ba1137ed2d7cb8e0651a627be2e2d350921cc075d4a2a819de3927"
+  },
+  {
+    "file": "paper/data/ablation_correction_cr_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_correction_cr_overview.csv",
+    "bytes": 1501,
+    "sha256": "189a5b3fdcd32d258c7902abf3aacde9eb5abfabcc55857e9884920ca2a8ac98"
+  },
+  {
+    "file": "paper/data/ablation_correction_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_correction_table.csv",
+    "bytes": 1000,
+    "sha256": "b4ec17ddb5aa9e621fb9494720f3d22e860dacfaae2bb486ffb174f42a2a0122"
+  },
+  {
+    "file": "paper/data/ablation_cr_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_cr_overview.csv",
+    "bytes": 4992,
+    "sha256": "803c08658768bcc7d0a1c1a33c96b81a14e26669eae49e100fa817acf1231532"
+  },
+  {
+    "file": "paper/data/ablation_detail_tables.tex",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_detail_tables.tex",
+    "bytes": 27495,
+    "sha256": "74b33cb77e61848238ad26b4c621224c68f4c57d815c8de0e43ef6236e6d6145"
+  },
+  {
+    "file": "paper/data/ablation_downstream_contrast_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_downstream_contrast_overview.csv",
+    "bytes": 19199,
+    "sha256": "d8f945cf4570b5b7292b149d488716073cf4d225638a25b0c5d1f40475672cfc"
+  },
+  {
+    "file": "paper/data/ablation_downstream_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_downstream_overview.csv",
+    "bytes": 4214,
+    "sha256": "2621baa41166813d7eecd2d78ce1e82a34e171a54b425013f4816cbae6d37922"
+  },
+  {
+    "file": "paper/data/ablation_forecast_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_forecast_table.csv",
+    "bytes": 877,
+    "sha256": "b9cfc5fc4a1b9820f60a2b65bbd5435f9fd45254c7df49705d319622e43ffd77"
+  },
+  {
+    "file": "paper/data/ablation_mechanism_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/ablation_mechanism_overview.csv",
+    "bytes": 6369,
+    "sha256": "afa314680e70cfc0c8ba7faa54d5c7b2add3fcbedad9df85adc936a88be6eeaa"
+  },
+  {
+    "file": "paper/data/backend_overview.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/backend_overview.csv",
+    "bytes": 1464,
+    "sha256": "9f72fd08a15f0a573f4445252b025ff5744e139c85c730fefa52307dcbe8c076"
+  },
+  {
+    "file": "paper/data/backend_timing_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/backend_timing_table.csv",
+    "bytes": 897,
+    "sha256": "408fcecdad5688ea7f3cfb291c6b505ed46750a708742ee7cfbc8ddb5a5daf1b"
+  },
+  {
+    "file": "paper/data/correction_outcomes.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/correction_outcomes.csv",
+    "bytes": 1490,
+    "sha256": "b4a5e736651cf697e996e7aa4ce493aa90e0873a05eb94ece3a39c46b57318e5"
+  },
+  {
+    "file": "paper/data/downstream_gain_cells.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/downstream_gain_cells.csv",
+    "bytes": 99817,
+    "sha256": "fb41833f8182ec0cac90036eb689cb08c2acc4669f0722d02a42d19d4caeefbc"
+  },
+  {
+    "file": "paper/data/downstream_large_table.csv",
+    "source": "Overleaf source snapshot 2026-11-01/data/downstream_large_table.csv",
+    "bytes": 54594,
+    "sha256": "0b9bdd4796830b5ec69c44b98c7cf0170215e0e216ad94d14a619830c71334fb"
+  },
+  {
+    "file": "paper/data/downstream_large_table.tex",
+    "source": "Overleaf source snapshot 2026-11-01/data/downstream_large_table.tex",
+    "bytes": 9859,
+    "sha256": "87225d70e03d05bac3990b0ecbc05ebdbad4d0af50b6c2e803f3ead9b9f4b15b"
+  },
+  {
+    "file": "paper/data/backend_storage_rows.tex",
+    "source": "Overleaf source snapshot 2026-11-01/data/backend_storage_rows.tex",
+    "bytes": 416,
+    "sha256": "2bdd2f286a906f4528fa87a7c6a44bcf30169512d964c3e8a6ed92ee33036928"
+  },
+  {
+    "file": "paper/data/backend_runtime_rows.tex",
+    "source": "Overleaf source snapshot 2026-11-01/data/backend_runtime_rows.tex",
+    "bytes": 241,
+    "sha256": "e56536b1b1c7c63051afcd913013fbfe3a663405611ec2bb552d572ee8b340c0"
+  },
+  {
+    "file": "paper/figures/motivation.pdf",
+    "source": "Overleaf source snapshot 2026-11-01/figures/motivation.pdf",
+    "bytes": 54352,
+    "sha256": "c3a81650c28212020be40d6ef348aa9cdc1c0dce5771de51e7400191ac49b0c5"
+  },
+  {
+    "file": "paper/figures/motivation.drawio",
+    "source": "Overleaf source snapshot 2026-11-01/figures/motivation.drawio",
+    "bytes": 30001,
+    "sha256": "01920a8e3938bb89247134df0de31d321ed0004907517d323d096491639ca6b2"
+  },
+  {
+    "file": "paper/figures/motivation.svg",
+    "source": "Overleaf source snapshot 2026-11-01/figures/motivation.svg",
+    "bytes": 184161,
+    "sha256": "374c5bdc18692eced35503eb299c8717824eccde6103dfe4e2f47e312e979a5d"
+  },
+  {
+    "file": "paper/figures/architecture.pdf",
+    "source": "Overleaf source snapshot 2026-11-01/figures/architecture.pdf",
+    "bytes": 74473,
+    "sha256": "336fa7401cacc35ba887d1376d4673648542edce4a4974799241f3968dead1dd"
+  },
+  {
+    "file": "paper/figures/architecture.drawio",
+    "source": "Overleaf source snapshot 2026-11-01/figures/architecture.drawio",
+    "bytes": 38949,
+    "sha256": "8e410b8fedc22c9dcf40b08f3a1ca12a512588a1315c1da3ceee5e4147c55ecc"
+  },
+  {
+    "file": "paper/figures/budget.pdf",
+    "source": "Overleaf source snapshot 2026-11-01/figures/budget.pdf",
+    "bytes": 60406,
+    "sha256": "68eec27263e7086cc273f0283b4d0d87e19fb25be6ef13e5817742eea7bb21eb"
+  },
+  {
+    "file": "paper/figures/budget.drawio",
+    "source": "Overleaf source snapshot 2026-11-01/figures/budget.drawio",
+    "bytes": 15407,
+    "sha256": "525c2cdfffe401ff56764d1792afaf2900e2fafc29709a38ca79a8af37ebfe19"
+  },
+  {
+    "file": "paper/figures/mechanism.pdf",
+    "source": "Overleaf source snapshot 2026-11-01/figures/mechanism.pdf",
+    "bytes": 150641,
+    "sha256": "f9957d80dca759e70328ba2578598c68c9239a5f368e7a205caf5501df7a612a"
+  },
+  {
+    "file": "paper/figures/ablation_tasks.pdf",
+    "source": "Overleaf source snapshot 2026-11-01/figures/ablation_tasks.pdf",
+    "bytes": 20844,
+    "sha256": "fef763631e7694d04033b98ca2373bba836d5c1e2274b62d0540ed3cfb5955c4"
+  },
+  {
+    "file": "paper/figures/ablation_tasks.png",
+    "source": "Overleaf source snapshot 2026-11-01/figures/ablation_tasks.png",
+    "bytes": 146022,
+    "sha256": "70882fd1ee6c5a1ea3fd5019723e878b15a1dc20c4b438e05b05ae9e8daf8365"
+  }
+]

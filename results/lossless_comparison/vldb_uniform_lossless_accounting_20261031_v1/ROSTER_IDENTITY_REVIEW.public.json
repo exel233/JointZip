@@ -1,0 +1,70 @@
+{
+  "schema": "jointzip.uniform-accounting.roster-identity-review.v1",
+  "checked_utc": "2026-10-31T13:58:55.662659+00:00",
+  "passed": true,
+  "scope": "Additional independent roster and source-row/payload-codec identity checks only.",
+  "conditions": 3024,
+  "unique_condition_keys": 3024,
+  "expected_conditions": 3024,
+  "unique_inputs": 172,
+  "per_backend_task_counts": {
+    "sz3": {
+      "anomaly": 72,
+      "forecast": 426,
+      "ucr": 6
+    },
+    "zfp": {
+      "anomaly": 72,
+      "forecast": 426,
+      "ucr": 6
+    },
+    "sperr": {
+      "anomaly": 72,
+      "forecast": 426,
+      "ucr": 6
+    },
+    "serf_xor": {
+      "anomaly": 72,
+      "forecast": 426,
+      "ucr": 6
+    },
+    "serf_qt": {
+      "anomaly": 72,
+      "forecast": 426,
+      "ucr": 6
+    },
+    "sz2016": {
+      "anomaly": 72,
+      "forecast": 426,
+      "ucr": 6
+    }
+  },
+  "missing": [],
+  "unexpected": [],
+  "duplicate_keys": [],
+  "historical_csv_duplicate_keys": [],
+  "source_row_identity_checked": 3024,
+  "actual_jzp1_inner_codec_identity_checked": {
+    "serf_qt": 504,
+    "serf_xor": 504,
+    "sperr": 504,
+    "sz3": 504,
+    "zfp": 504,
+    "sz2016": 504
+  },
+  "inner_thresholds_and_lags_checked": 3024,
+  "inner_outer_saved_shape_checked": 3024,
+  "verification": "Read JCF1 common header and decompress only the JZP1 wrapper prefix to inspect its JZI1 codec/shape/threshold header. No native base decoder, lossless sample decoder, scientific encoder, or downstream model was invoked.",
+  "native_reconstruction_decoders_run": false,
+  "scientific_encoders_run": false,
+  "downstream_run": false,
+  "original_files_modified": false,
+  "errors": [],
+  "evidence": [
+    "experiments/results/vldb_uniform_lossless_accounting_20261031_v1/conditions.csv",
+    "experiments/results/vldb_framework_full_20261015_v1/freeze.json",
+    "experiments/results/vldb_framework_full_20261015_v1/analysis/compression.csv",
+    "experiments/results/vldb_framework_sz2016_20261016_v1/analysis/compression.csv"
+  ],
+  "evidence_path_base": "Original project root; evidence paths are project-relative."
+}

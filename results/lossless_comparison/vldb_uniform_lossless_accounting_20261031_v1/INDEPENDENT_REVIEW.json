@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "completed_utc": "2026-10-31T13:56:33.702594+00:00",
+  "review_scope": "Independent standard-library inspection of saved files, byte comparisons, metadata/roster verification, and re-aggregation. No decoding, encoding or downstream inference rerun.",
+  "files": {
+    "jointzip": 3024,
+    "lossless": 172,
+    "total": 3196
+  },
+  "complete_roster_verified": true,
+  "metadata_inputs": 172,
+  "identical_metadata_all_3024_pairs": true,
+  "required_metadata_fields": [
+    "channel",
+    "dtype",
+    "mean",
+    "shape",
+    "std",
+    "true_count",
+    "version"
+  ],
+  "all_172_inputs_match_frozen_roster": true,
+  "all_3024_jointzip_streams_preserved_except_common_magic": true,
+  "all_172_lossless_collections_byte_identical": true,
+  "condition_counts": {
+    "higher": 2500,
+    "tied": 0,
+    "lower": 524
+  },
+  "macro_groups": 18,
+  "macro_higher": 18,
+  "macros": [
+    {
+      "backend": "sz3",
+      "task": "forecast",
+      "jointzip_cr": 3.0813791105487063,
+      "lossless_cr": 2.0264469287429545,
+      "cr_ratio": 1.5205821908497485,
+      "higher": 83,
+      "tied": 0,
+      "lower": 343
+    },
+    {
+      "backend": "sz3",
+      "task": "ucr",
+      "jointzip_cr": 7.693766088404484,
+      "lossless_cr": 1.3746045310099921,
+      "cr_ratio": 5.59707604248291,
+      "higher": 6,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "sz3",
+      "task": "anomaly",
+      "jointzip_cr": 6.945939780896597,
+      "lossless_cr": 4.564892085771899,
+      "cr_ratio": 1.5215999963166873,
+      "higher": 26,
+      "tied": 0,
+      "lower": 46
+    },
+    {
+      "backend": "zfp",
+      "task": "forecast",
+      "jointzip_cr": 5.084228134381293,
+      "lossless_cr": 2.0264469287429545,
+      "cr_ratio": 2.508937225183164,
+      "higher": 426,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "zfp",
+      "task": "ucr",
+      "jointzip_cr": 11.770173005460826,
+      "lossless_cr": 1.3746045310099921,
+      "cr_ratio": 8.562588540874865,
+      "higher": 6,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "zfp",
+      "task": "anomaly",
+      "jointzip_cr": 8.53213656056381,
+      "lossless_cr": 4.564892085771899,
+      "cr_ratio": 1.8690773845798527,
+      "higher": 37,
+      "tied": 0,
+      "lower": 35
+    },
+    {
+      "backend": "sperr",
+      "task": "forecast",
+      "jointzip_cr": 9.685075912555199,
+      "lossless_cr": 2.0264469287429545,
+      "cr_ratio": 4.779338543330638,
+      "higher": 426,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "sperr",
+      "task": "ucr",
+      "jointzip_cr": 23.48729936583352,
+      "lossless_cr": 1.3746045310099921,
+      "cr_ratio": 17.086586604349545,
+      "higher": 6,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "sperr",
+      "task": "anomaly",
+      "jointzip_cr": 12.993417796828407,
+      "lossless_cr": 4.564892085771899,
+      "cr_ratio": 2.8463800573351974,
+      "higher": 44,
+      "tied": 0,
+      "lower": 28
+    },
+    {
+      "backend": "serf_xor",
+      "task": "forecast",
+      "jointzip_cr": 5.939329646727142,
+      "lossless_cr": 2.0264469287429545,
+      "cr_ratio": 2.930908064990099,
+      "higher": 426,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "serf_xor",
+      "task": "ucr",
+      "jointzip_cr": 12.874743412130206,
+      "lossless_cr": 1.3746045310099921,
+      "cr_ratio": 9.36614358652701,
+      "higher": 6,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "serf_xor",
+      "task": "anomaly",
+      "jointzip_cr": 10.919167639225108,
+      "lossless_cr": 4.564892085771899,
+      "cr_ratio": 2.39198812021396,
+      "higher": 46,
+      "tied": 0,
+      "lower": 26
+    },
+    {
+      "backend": "serf_qt",
+      "task": "forecast",
+      "jointzip_cr": 10.653429847331017,
+      "lossless_cr": 2.0264469287429545,
+      "cr_ratio": 5.257196572100486,
+      "higher": 426,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "serf_qt",
+      "task": "ucr",
+      "jointzip_cr": 27.678350110235957,
+      "lossless_cr": 1.3746045310099921,
+      "cr_ratio": 20.135500419090906,
+      "higher": 6,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "serf_qt",
+      "task": "anomaly",
+      "jointzip_cr": 16.450324910351487,
+      "lossless_cr": 4.564892085771899,
+      "cr_ratio": 3.6036612917148125,
+      "higher": 63,
+      "tied": 0,
+      "lower": 9
+    },
+    {
+      "backend": "sz2016",
+      "task": "forecast",
+      "jointzip_cr": 5.627395225128889,
+      "lossless_cr": 2.0264469287429545,
+      "cr_ratio": 2.776976364547417,
+      "higher": 426,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "sz2016",
+      "task": "ucr",
+      "jointzip_cr": 10.078222355173091,
+      "lossless_cr": 1.3746045310099921,
+      "cr_ratio": 7.331724963665081,
+      "higher": 6,
+      "tied": 0,
+      "lower": 0
+    },
+    {
+      "backend": "sz2016",
+      "task": "anomaly",
+      "jointzip_cr": 10.00802353051479,
+      "lossless_cr": 4.564892085771899,
+      "cr_ratio": 2.1923899497445594,
+      "higher": 35,
+      "tied": 0,
+      "lower": 37
+    }
+  ],
+  "max_aggregate_numeric_absolute_difference": 0.0,
+  "channel_label_mappings_verified": 24,
+  "example": {
+    "task": "anomaly",
+    "sid": "544_SMAP_id_14_Sensor_tr_1978_1st_4450",
+    "backend": "zfp",
+    "point": "strict",
+    "dataset": "SMAP",
+    "jointzip_cr": 4.515785469760365,
+    "lossless_cr": 6.432945001354646,
+    "cr_ratio": 0.701977938379612,
+    "outcome": "lower",
+    "jointzip_complete_bytes": 5258,
+    "lossless_complete_bytes": 3691
+  },
+  "limitations": [
+    "Independent reviewer reused main-run lossless decode evidence and original JointZip decode evidence. Native/lossless decoders were not rerun in this review.",
+    "This is a complete-file comparison with a saved windowed Zstd19 plus batch-closure baseline, not a test of the internal Zstd3 fallback."
+  ],
+  "errors": []
+}

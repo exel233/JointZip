@@ -1,10 +1,13 @@
 # Experimental result archive
 
-This release contains machine-readable results used by the October 21, 2026
-JointZip manuscript. CSV files are copied byte for byte from finalized analyses;
+This release contains machine-readable results from the October 15--31, 2026
+JointZip studies. CSV files are copied byte for byte from finalized analyses;
 no compression, training, inference, threshold selection, or scientific rerun was
 performed to package this archive. `results/SOURCE_MANIFEST.json` records each
 copied file's original project-relative path, byte size, and SHA-256 hash.
+For the two files named `*.public.json`, it also records the original file's
+size and hash and the exact text-only path transformation. Numeric values,
+scientific settings, and source/dependency hashes are unchanged.
 
 ## Evidence map
 
@@ -13,7 +16,9 @@ copied file's original project-relative path, byte size, and SHA-256 hash.
 | `results/native_comparison/vldb_framework_full_20261015_v1/` | Five-backend completed comparison | SZ3, ZFP, SPERR-1D, Serf-XOR, and Serf-QT native versus JointZip |
 | `results/native_comparison/vldb_framework_sz2016_20261016_v1/` | Completed SZ2016 comparison | The same comparison and independent timing for SZ2016 |
 | `results/ablation/vldb_framework_ablation_20261017_v1/` | Completed six-backend ablation | E, ER, EA, ERA, and ERA without correction; all prescribed settings |
-| `paper/data/` | October 21 manuscript data | Exact displayed aggregate inputs, large table, and complete companion tables |
+| `results/acf_case/vldb_acf_forda_fordb_20261028_v1/` | Completed FordA/FordB case study | ER versus both declared ERA thresholds, two backends, both classification consumers, and mechanism diagnostics |
+| `results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/` | Complete-file comparison with lossless Zstd | All 3,024 original ERA TEST conditions under a common metadata wrapper |
+| `paper/data/` | Manuscript display data | Exact displayed aggregate inputs, large table, and companion tables; each source version is identified in the manifest |
 
 Each native-comparison directory contains `downstream_pairs.csv`,
 `downstream_summary.csv`, `cr_pairs.csv`, `cr_summary.csv`, `timing_pairs.csv`, and
@@ -81,7 +86,9 @@ Quality first averages seeds, then inputs within a source, then sources equally.
 Overview values also average models equally. Forecasting has six equally weighted
 sources, UCR six datasets, and NASA two sources (MSL and SMAP). Forecasting and
 NASA overviews weight strict, medium, and loose equally; UCR uses stress only.
-The large table retains source and setting separately. Forecasting percentage
+The large table retains source and setting separately; its added Mean rows
+average sources equally within each task/backend/setting before rounding.
+These comprise eight displayed rows and 48 backend cells. Forecasting percentage
 changes are ratios of resulting macro-average MSEs, not averages of per-record
 percentage changes. Classification accuracy and retrieval AP are stored as
 fractions; figures/tables may display them as percentages. Anomaly VUS-PR is a
@@ -129,6 +136,127 @@ The input data informed framework development, so the results are exploratory
 evidence on the specified workloads. Frozen models and short contexts assess
 reconstruction sensitivity; pretrained-model overlap is not excluded. The
 release contains no claim about unseen tasks or benchmark-wide optimality.
+
+## FordA/FordB ACF case study
+
+`results/acf_case/vldb_acf_forda_fordb_20261028_v1/` contains all three arms
+(`ER`, `ERA_tau005`, and `ERA_tau001`) for SZ3 and ZFP. FordA has 3,601 TRAIN
+and 1,320 TEST records; FordB has 3,636 TRAIN and 810 TEST records. Each record
+is a complete 500-point window. Every official TEST record is included. The
+datasets were selected before TEST evaluation using the low-frequency structure
+discussed in Section 3.4 of [Lubba et al., catch22](https://doi.org/10.1007/s10618-019-00647-x).
+
+The pointwise tolerance is 1.0 and minimum source-reconstruction correlation is
+0.99. ER disables the ACF gate; ERA uses maximum ACF distortion 0.05 or 0.01.
+The common maximum lag, 16, was selected using TRAIN-only coverage of the first
+traditional ACF minimum and its right neighbor. The original backend search
+budgets and correction policy are retained. The primary consumer uses all 22
+pycatch22 0.4.5 features. The complementary consumer uses 32 non-DC frequency
+bands. Both use median imputation, standardization, and the same fixed
+LogisticRegression configuration fitted on raw TRAIN only. A classifier using
+only the first ACF minimum is a mechanism diagnostic. Full parameters, versions,
+input/model hashes, and native binary identities appear in `PROTOCOL.public.json`.
+
+| File | Coverage and interpretation |
+| --- | --- |
+| `downstream.csv` | All 42 dataset/backend/arm/consumer records, including Raw; accuracy, balanced accuracy, AUROC, full bytes, complete CR, and prediction flips |
+| `contrasts.csv` | All 24 paired ER-to-ERA contrasts, including the mechanism-only consumer; changes in percentage points, descriptive intervals, and improved/tied/declined counts |
+| `mechanism.csv` | All 12 stored streams; actual E/R/ACF, enabled-constraint pass counts, complete CR, exact fallback, correction points/bytes, and traditional-ACF/first-minimum errors |
+| `artifacts/*_windows.csv` | All 12,780 per-window mechanism and constraint records, in 12 files; these are numeric diagnostics, not reconstructed time series |
+| `RESULTS.json` | The complete downstream, contrast, and mechanism records together |
+| `TEST_BINDING.json`, `TRAIN_PREPARATION.json` | Frozen TEST identity and TRAIN-only lag-selection evidence |
+| `COMPLETE.json`, `audit/FINAL_RESULT_AUDIT.json` | Saved completion and independent verification evidence |
+
+Accuracy and balanced accuracy in `downstream.csv` are fractions, AUROC is on
+0--1, and contrast changes and confidence limits are in percentage points.
+The intervals are class-stratified paired bootstrap intervals with 5,000
+replicates on the fixed TEST sets. They are descriptive and have no
+multiple-comparison correction. All enabled numerical constraints pass for all
+12,780 windows. The saved independent audit compares 39,018 quantities, with a
+maximum absolute difference of approximately 1.33e-14.
+
+For the primary catch22 consumer, tightening A from disabled to 0.01 improves
+balanced accuracy by 3.354 and 20.500 percentage points on FordA for SZ3 and
+ZFP, and by 3.218 and 8.111 points on FordB. The 0.05 setting ties ER in balanced
+accuracy. Across both classification consumers and both A thresholds there are
+eight improved, eight tied, and zero declined aggregate comparisons. All
+mechanism-only outcomes are also retained, including the small negative
+FordA/SZ3 first-minimum result. The FordB/SZ3 frequency-band interval includes
+zero. Stronger A constraints reduce CR in the 0.01 cases; equal requested E/R
+thresholds do not imply equal actual E/R or matched CR.
+
+The two feature representations are related, so this is not statistically
+independent spectral validation. The traditional global-mean ACF used for
+feature diagnostics differs from the slice-Pearson ACF contract. The case study
+does not establish a guarantee for arbitrary unknown downstream tasks, and
+cache/parallel timings are not codec speed measurements.
+
+`PROTOCOL.public.json` replaces private host path prefixes with
+`{experiment-storage}/` and `{project-root}/` placeholders only. Its recorded
+model, binary, source, and runtime-file hashes identify the originals; those
+files are not all redistributed. The protocol hash in `COMPLETE.json` and the
+saved audit is the **original frozen protocol hash**, listed as `source_sha256`
+in `results/SOURCE_MANIFEST.json`, not the hash of the public path-normalized
+copy. Completion also refers to historical local recovery records that are
+not part of this archive. Raw inputs, predictions, reconstructed signals,
+trained models, execution logs, and caches are omitted.
+
+## Complete-file comparison with lossless Zstd
+
+`results/lossless_comparison/vldb_uniform_lossless_accounting_20261031_v1/`
+compares all 172 original TEST inputs and all 3,024 ERA JointZip configurations
+against saved lossless Zstd output. It does not include the later Ford case
+study. Classification and retrieval share the UCR compressed files, so this
+comparison has three compression task groups: forecasting, UCR, and anomaly.
+
+Both sides use a JCF1 wrapper with byte-identical per-input metadata, including
+dtype, shape, true count, normalization mean/std, channel, and version. Each
+method's own dispatch, window/record boundaries, encoded payload, and correction
+records remain fully billed. Provenance hashes are external for both methods.
+The lossless reference is the saved windowed Zstd level-19 collection with
+its existing batch closure, rather than JointZip's internal Zstd level-3 exact
+candidate. The original payloads are preserved; no scientific encoding,
+consumer evaluation, or speed experiment was rerun.
+
+| File | Coverage and interpretation |
+| --- | --- |
+| `conditions.csv` | All 3,024 paired conditions, including full bytes, CR, ratio, byte savings, outcome, payload identities, and artifact hashes |
+| `macros.csv` | All 18 backend/task macro groups, with source-balanced geometric means |
+| `settings.csv` | Every backend/task/setting group, retaining strict, medium, loose, and UCR stress |
+| `sources.csv` | All 84 backend/source groups |
+| `SUMMARY.json`, `COMPLETE.json` | Complete coverage, aggregate ranges, verification counts, and an unfavorable example |
+| `PROTOCOL.json` | Exact scope, common accounting, lossless reference, and aggregation policy |
+| `INDEPENDENT_REVIEW.json`, `ROSTER_IDENTITY_REVIEW.public.json` | Saved complete-file, metadata, roster, backend identity, and aggregation checks |
+| `source_bindings.json`, `lossless_files.json`, `channel_mapping.json` | Original artifact/input identities, the 172 lossless-file records, and historical/current channel mapping |
+| `REPORT_MANIFEST.json` | Original producer/result hashes; references are to the original study tree |
+
+Complete CR uses unpadded Float32 bytes divided by complete JCF1 file bytes.
+Means are geometric within each source and then equally weighted across
+sources. Forecasting and anomaly retain all three settings; UCR uses stress.
+The 18 backend/task CR ratios are all above one, ranging from 1.521 to 20.136.
+This range is a range of macro ratios, not a per-file range or a ratio of total
+storage bytes. Across individual configurations, JointZip CR is higher in
+2,500, tied in zero, and lower in 524. The lower cases comprise 343 SZ3
+forecasting conditions and 181 anomaly conditions. Of 84 backend/source groups,
+83 favor JointZip; SZ3/Solar is the exception. These related configurations are
+not independent statistical samples.
+
+All 172 lossless files were independently decoded bit-exact. All 3,024 JointZip
+payloads and original-file reconstruction hashes were verified unchanged, using
+the existing independently decoded scientific evidence; the original native
+decoders were not all rerun for this accounting study. The public archive
+contains the recorded numeric and verification evidence, not the 3,196 encoded
+files. Artifact paths in the CSV/JSON identify files in the original study tree,
+not additional downloads in this repository. `ROSTER_IDENTITY_REVIEW.public.json`
+changes only a private absolute-path description. `REPORT_MANIFEST.json` retains
+the hash of the original review, which is also recorded as `source_sha256` in
+the release manifest.
+
+Window-level selection against an internal exact candidate does not guarantee
+that the final JointZip stream is smaller than a separately encoded lossless
+file. This study changes common framing and accounting only; it does not add a
+whole-file fallback. The 524 lower-CR conditions must not be confused with the
+581 conditions from an earlier payload-only accounting comparison.
 
 ## Companion document
 

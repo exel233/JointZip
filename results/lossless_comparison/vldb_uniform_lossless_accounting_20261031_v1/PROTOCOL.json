@@ -1,0 +1,33 @@
+{
+  "schema": "jointzip.uniform-complete-accounting.v1",
+  "created_utc": "2026-10-31T13:53:11.358192+00:00",
+  "scope": "All 172 original TEST inputs; all 3024 ERA JointZip TEST conditions; Zstd lossless reference.",
+  "current_runs": [
+    "experiments\\results\\vldb_framework_full_20261015_v1",
+    "experiments\\results\\vldb_framework_sz2016_20261016_v1"
+  ],
+  "baseline_run": "experiments\\results\\vldb_simple_correction_20260929_v1",
+  "encoding": "No encoding. Copy complete saved JointZip JZP1 and lossless NCS collections byte-for-byte.",
+  "common_format": "JCF1: 4-byte magic + uint32 JSON length + identical per-input JZF1 JSON + self-identifying codec payload.",
+  "common_metadata": [
+    "version",
+    "dtype",
+    "shape",
+    "true_count",
+    "mean",
+    "std",
+    "channel"
+  ],
+  "jointzip_payload": "Unchanged JZP1, including its 4-byte dispatch magic, all records, bases, corrections and whole-stream compression.",
+  "lossless_payload": "4-byte ZLC1 dispatch magic + unchanged complete NCS1/NCS2 collection, including closure mode and lengths, ZSL1 shape and window boundaries.",
+  "lossless_codec": "Saved windowed Zstd level19 with batch closure selected among raw/levels3,9,15,19. Not the internal Zstd3 fallback.",
+  "provenance": "External manifest for both methods, excluded from both stored files. All required decoding metadata counted.",
+  "channel_policy": "Use current input schema channel from JZF1 on both sides. Record historical channel names externally.",
+  "numerator": "4*true_count, unpadded Float32 bytes.",
+  "aggregation": "First geometric mean within each source, then equal sources. Forecast and NASA settings equally represented; UCR stress only.",
+  "verification": "All lossless files independently decoded bit-exact. All JointZip inner payloads and full original-file reconstruction hashes verified unchanged, with existing independent-decode evidence reused.",
+  "no_changes": [
+    "No scientific encoders or downstream tasks rerun",
+    "No manuscript or Overleaf changes"
+  ]
+}

@@ -24,7 +24,7 @@ SZ2016 & 10.7395 & 5.7647 & 6.7683 & 5.6274 & 5.5565 \\
 \centering
 \small
 \setlength{\tabcolsep}{5pt}
-\caption{Forecasting full numerical ERA pass rate (\%). These rates audit all three constraints even when some were disabled. All arms pass their enabled constraints; the audit uses the fixed $64\epsilon_{\rm mach}$ tolerance. Rates are ratios of window counts, not source-macro averages.}
+\caption{Forecasting full numerical ERA pass rate (\%). These rates audit all three constraints even when some were disabled. All arms pass their enabled constraints; the audit uses the numerical slack $\nu$ defined in Section~\ref{sec:s-representations}. Rates are ratios of window counts, not source-macro averages.}
 \label{tab:s-ablation-pass-forecast}
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule
@@ -64,7 +64,7 @@ SZ2016 & 17.7657 & 10.1359 & 13.2043 & 10.0782 & 9.9517 \\
 \centering
 \small
 \setlength{\tabcolsep}{5pt}
-\caption{UCR full numerical ERA pass rate (\%). These rates audit all three constraints even when some were disabled. All arms pass their enabled constraints; the audit uses the fixed $64\epsilon_{\rm mach}$ tolerance. Rates are ratios of window counts, not source-macro averages.}
+\caption{UCR full numerical ERA pass rate (\%). These rates audit all three constraints even when some were disabled. All arms pass their enabled constraints; the audit uses the numerical slack $\nu$ defined in Section~\ref{sec:s-representations}. Rates are ratios of window counts, not source-macro averages.}
 \label{tab:s-ablation-pass-ucr}
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule
@@ -104,7 +104,7 @@ SZ2016 & 11.8077 & 10.2094 & 10.3901 & 10.0080 & 9.9938 \\
 \centering
 \small
 \setlength{\tabcolsep}{5pt}
-\caption{NASA full numerical ERA pass rate (\%). These rates audit all three constraints even when some were disabled. All arms pass their enabled constraints; the audit uses the fixed $64\epsilon_{\rm mach}$ tolerance. Rates are ratios of window counts, not source-macro averages.}
+\caption{NASA full numerical ERA pass rate (\%). These rates audit all three constraints even when some were disabled. All arms pass their enabled constraints; the audit uses the numerical slack $\nu$ defined in Section~\ref{sec:s-representations}. Rates are ratios of window counts, not source-macro averages.}
 \label{tab:s-ablation-pass-anomaly}
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule
@@ -488,7 +488,7 @@ SZ2016 & NASA & 9.9938 & 10.0080 & +0.1425 & 7/65/0 \\
 \centering
 \small
 \setlength{\tabcolsep}{5pt}
-\caption{Correction on-minus-off task differences in raw metric units. Positive MSE means deterioration; positive accuracy, AP, and VUS-PR mean improvement. Scientific notation preserves tiny effects. No significance claim follows from these aggregate differences.}
+\caption{Correction on-minus-off task differences in raw metric units. Positive MSE means deterioration; positive classification accuracy, retrieval mAP, anomaly AP, and VUS-PR mean improvement. Scientific notation preserves tiny effects. No significance claim follows from these aggregate differences.}
 \label{tab:s-ablation-correction-quality}
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule

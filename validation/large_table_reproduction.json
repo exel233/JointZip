@@ -1,0 +1,329 @@
+{
+  "scientific_run": false,
+  "operation": "Read finalized results and author a numeric table only",
+  "sources": [
+    {
+      "path": "results\\native_comparison\\vldb_framework_full_20261015_v1\\downstream_pairs.csv",
+      "sha256": "29470b0cadc4a9ff589ac69a1106058edbdb05f6fe45407d1f52f3668ed3a992",
+      "rows": 27930,
+      "selected_test_pairs": 14070
+    },
+    {
+      "path": "results\\native_comparison\\vldb_framework_sz2016_20261016_v1\\downstream_pairs.csv",
+      "sha256": "8e7e373a5f90535596522b7ed204d57d08d031ebeb973757e10388a7c99c5f5c",
+      "rows": 5586,
+      "selected_test_pairs": 2814
+    },
+    {
+      "path": "results\\native_comparison\\vldb_framework_full_20261015_v1\\cr_pairs.csv",
+      "sha256": "7e1aa9da652f086e375008139273891aa6839a602f28b1f14a02e82319249f26",
+      "rows": 4650,
+      "selected_test_pairs": 2520
+    },
+    {
+      "path": "results\\native_comparison\\vldb_framework_sz2016_20261016_v1\\cr_pairs.csv",
+      "sha256": "6a68f6f284265c4cb4d45cbebeb7eded2e43f173fc01836930c1e24d9a85eda0",
+      "rows": 930,
+      "selected_test_pairs": 504
+    }
+  ],
+  "atlas_csv_sha256": "fb41833f8182ec0cac90036eb689cb08c2acc4669f0722d02a42d19d4caeefbc",
+  "atlas_cells_checked": 1008,
+  "atlas_max_absolute_error": 0.0,
+  "selected_quality_input_pairs": 16884,
+  "selected_compression_artifact_pairs": 3024,
+  "raw_invariant_checks": 966,
+  "raw_max_spread_across_backend_and_setting": 0.0,
+  "quality_source_setting_rows": 36,
+  "quality_backend_cells": 216,
+  "displayed_mean_rows": 8,
+  "mean_backend_cells": 48,
+  "displayed_cr_rows": 7,
+  "cr_backend_cells": 42,
+  "displayed_data_rows": 51,
+  "displayed_paired_cells": 306,
+  "displayed_native_jointzip_values": 612,
+  "source_cr_cells_in_csv": 216,
+  "missing_or_unexpected_cells": 0,
+  "existing_macro_values_checked": 60,
+  "existing_macro_max_absolute_error": 4.440892098500626e-14,
+  "existing_macro_overview_sha256": "9f72fd08a15f0a573f4445252b025ff5744e139c85c730fefa52307dcbe8c076",
+  "quality_aggregation": "Already seed-averaged input pairs -> equal inputs within source/model/setting -> equal models; preserve source and setting.",
+  "mean_aggregation": "Arithmetic mean of unrounded quality values, equally weighted over sources independently at each task/backend/setting.",
+  "cr_aggregation": "One TEST compression artifact pair per sid/backend/setting -> geometric mean within source -> geometric mean over sources equally.",
+  "raw_invariance": "Raw checked independently per task/model/source/input across all backends/settings before aggregation.",
+  "shared_ucr": "Classification and retrieval use exactly the same CR source cells; the single UCR CR row serves both.",
+  "units": {
+    "forecast": "absolute MSE, four decimals",
+    "classification": "accuracy percent, two decimals",
+    "retrieval": "mAP percent, two decimals",
+    "anomaly": "absolute VUS-PR, four decimals",
+    "CR": "complete-stream ratio, two decimals"
+  },
+  "emphasis": "Better Native or JointZip within each quality pair only; ties at display precision unbolded; CR and Raw unbolded.",
+  "display_quality_outcomes": {
+    "jointzip": 164,
+    "native": 42,
+    "tie": 10
+  },
+  "display_mean_outcomes": {
+    "jointzip": 42,
+    "native": 6
+  },
+  "paper_comparison": {
+    "passed": true,
+    "csv_sha256": "0b9bdd4796830b5ec69c44b98c7cf0170215e0e216ad94d14a619830c71334fb",
+    "tex_sha256": "87225d70e03d05bac3990b0ecbc05ebdbad4d0af50b6c2e803f3ead9b9f4b15b",
+    "csv_rows_checked": 306,
+    "numeric_values_checked": 1392,
+    "mean_numeric_values_checked": 144,
+    "max_absolute_error": 0.0,
+    "display_fields_exact": true,
+    "tex_exact": true
+  },
+  "specifications": [
+    {
+      "task": "forecast",
+      "metric": "mse",
+      "label": "Forecasting: MSE $\\downarrow$",
+      "sources": [
+        "ETTm1",
+        "ETTm2",
+        "Solar",
+        "Weather",
+        "ElecDem",
+        "Wind"
+      ],
+      "points": [
+        "strict",
+        "medium",
+        "loose"
+      ],
+      "models": [
+        "ridge",
+        "dlinear",
+        "patchtst",
+        "chronos2",
+        "chronos_bolt_small",
+        "timesfm3"
+      ],
+      "scale": 1,
+      "decimals": 4,
+      "unit": "MSE",
+      "cr_task": "forecast"
+    },
+    {
+      "task": "classification",
+      "metric": "accuracy",
+      "label": "Classification: accuracy (\\%) $\\uparrow$",
+      "sources": [
+        "ECG200",
+        "ArrowHead",
+        "GunPoint",
+        "Earthquakes",
+        "ShapeletSim",
+        "Meat"
+      ],
+      "points": [
+        "stress"
+      ],
+      "models": [
+        "one_nn",
+        "logistic",
+        "resnet_v1",
+        "resnet_v2"
+      ],
+      "scale": 100,
+      "decimals": 2,
+      "unit": "percent",
+      "cr_task": "ucr"
+    },
+    {
+      "task": "retrieval",
+      "metric": "AP",
+      "label": "Retrieval: mAP (\\%) $\\uparrow$; same UCR storage as above",
+      "sources": [
+        "ECG200",
+        "ArrowHead",
+        "GunPoint",
+        "Earthquakes",
+        "ShapeletSim",
+        "Meat"
+      ],
+      "points": [
+        "stress"
+      ],
+      "models": [
+        "shape",
+        "resnet_v1",
+        "resnet_v2"
+      ],
+      "scale": 100,
+      "decimals": 2,
+      "unit": "percent",
+      "cr_task": "ucr"
+    },
+    {
+      "task": "anomaly",
+      "metric": "VUS_PR",
+      "label": "Anomaly detection: VUS-PR $\\uparrow$",
+      "sources": [
+        "MSL",
+        "SMAP"
+      ],
+      "points": [
+        "strict",
+        "medium",
+        "loose"
+      ],
+      "models": [
+        "ridge_svd64",
+        "knn",
+        "lstm"
+      ],
+      "scale": 1,
+      "decimals": 4,
+      "unit": "VUS-PR",
+      "cr_task": "anomaly"
+    }
+  ],
+  "examples": [
+    {
+      "task": "forecast",
+      "dataset": "ETTm1",
+      "point": "strict",
+      "backend": "serf_qt",
+      "raw": 0.010622130806066048,
+      "native": 0.01303643172477236,
+      "jointzip": 0.010684035074067101,
+      "inputs": 1,
+      "models": 6,
+      "native_cr": 20.37810945273632,
+      "jointzip_cr": 6.611783696529459,
+      "gain": 18.044789405333507
+    },
+    {
+      "task": "forecast",
+      "dataset": "ETTm1",
+      "point": "loose",
+      "backend": "serf_qt",
+      "raw": 0.010622130806066048,
+      "native": 0.11980548050885921,
+      "jointzip": 0.010471183408143464,
+      "inputs": 1,
+      "models": 6,
+      "native_cr": 28.151202749140893,
+      "jointzip_cr": 10.045370938074802,
+      "gain": 91.25984607409579
+    },
+    {
+      "task": "forecast",
+      "dataset": "ETTm1",
+      "point": "strict",
+      "backend": "serf_xor",
+      "raw": 0.010622130806066048,
+      "native": 0.012192634835093984,
+      "jointzip": 0.01058638173139048,
+      "inputs": 1,
+      "models": 6,
+      "native_cr": 14.003418803418803,
+      "jointzip_cr": 4.669136506127102,
+      "gain": 13.17396219462127
+    },
+    {
+      "task": "forecast",
+      "dataset": "ETTm1",
+      "point": "loose",
+      "backend": "serf_xor",
+      "raw": 0.010622130806066048,
+      "native": 0.09798402280623465,
+      "jointzip": 0.010939902044681113,
+      "inputs": 1,
+      "models": 6,
+      "native_cr": 20.978233034571065,
+      "jointzip_cr": 6.010271460014674,
+      "gain": 88.83501439176979
+    },
+    {
+      "task": "classification",
+      "dataset": "ArrowHead",
+      "point": "stress",
+      "backend": "sz2016",
+      "raw": 0.67,
+      "native": 0.3704761904761905,
+      "jointzip": 0.5985714285714285,
+      "inputs": 1,
+      "models": 4,
+      "native_cr": 24.382459061892863,
+      "jointzip_cr": 11.199643039265679,
+      "gain": 22.809523809523803
+    },
+    {
+      "task": "anomaly",
+      "dataset": "MSL",
+      "point": "medium",
+      "backend": "serf_qt",
+      "raw": 0.25681639776079224,
+      "native": 0.2608076352818733,
+      "jointzip": 0.31017220488152636,
+      "inputs": 7,
+      "models": 3,
+      "native_cr": 20.127703008773633,
+      "jointzip_cr": 15.102891689489539,
+      "gain": 4.936456959965307
+    },
+    {
+      "task": "anomaly",
+      "dataset": "SMAP",
+      "point": "medium",
+      "backend": "serf_qt",
+      "raw": 0.30028755050442524,
+      "native": 0.26504446223535494,
+      "jointzip": 0.29947911075756867,
+      "inputs": 17,
+      "models": 3,
+      "native_cr": 25.085478759123482,
+      "jointzip_cr": 18.150546782828368,
+      "gain": 3.443464852221373
+    },
+    {
+      "task": "anomaly",
+      "dataset": "MSL",
+      "point": "loose",
+      "backend": "sperr",
+      "raw": 0.25681639776079224,
+      "native": 0.3092163426147465,
+      "jointzip": 0.25507905297733363,
+      "inputs": 7,
+      "models": 3,
+      "native_cr": 15.013764309044104,
+      "jointzip_cr": 13.076708192480401,
+      "gain": -5.4137289637412875
+    },
+    {
+      "task": "anomaly",
+      "dataset": "SMAP",
+      "point": "loose",
+      "backend": "sperr",
+      "raw": 0.30028755050442524,
+      "native": 0.34888840383731684,
+      "jointzip": 0.3026821957163917,
+      "inputs": 17,
+      "models": 3,
+      "native_cr": 19.217350037209062,
+      "jointzip_cr": 15.758794867621408,
+      "gain": -4.620620812092513
+    }
+  ],
+  "outputs": {
+    "downstream_large_table.tex": {
+      "sha256": "87225d70e03d05bac3990b0ecbc05ebdbad4d0af50b6c2e803f3ead9b9f4b15b",
+      "bytes": 9859
+    },
+    "downstream_large_table.csv": {
+      "sha256": "0b9bdd4796830b5ec69c44b98c7cf0170215e0e216ad94d14a619830c71334fb",
+      "bytes": 54594
+    }
+  },
+  "generated_files_written": false
+}

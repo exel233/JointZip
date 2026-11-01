@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite the JointZip manuscript and identify the artifact tag or commit used."
+title: "JointZip: A Compression Framework for Preserving Pointwise Accuracy, Correlation, and Autocorrelation"
+type: software
+authors:
+  - family-names: Jiang
+    given-names: Xingjian
+    affiliation: Chalmers University of Technology
+  - family-names: Yu
+    given-names: Yinan
+    affiliation: Chalmers University of Technology
+repository-code: "https://github.com/exel233/JointZip"
+url: "https://github.com/exel233/JointZip"
+version: "vldb2027-submission-20261101"
+date-released: "2026-11-01"
+abstract: "Supporting implementation, experimental results, and table/figure reproduction for JointZip."
